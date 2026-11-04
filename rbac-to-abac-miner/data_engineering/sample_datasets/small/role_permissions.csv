@@ -1,0 +1,13 @@
+role_id,permission_id,resource_id
+R01,read,
+R01,write,RES005
+R02,read,
+R02,write,RES003
+R02,write,RES008
+R03,read,
+R03,write,RES004
+R03,write,RES007
+R04,read,
+R04,write,RES001
+R04,write,RES002
+R04,write,RES006

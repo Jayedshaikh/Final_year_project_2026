@@ -1,0 +1,38 @@
+{
+  "_scenario": "Tiny valid dataset — 3 users, 2 roles, 1 permission, 2 resources (oracle hand example)",
+  "_expected_codes": [],
+  "_expected_severity": null,
+  "_hand_computed_auth": [
+    {"user_id": "U001", "resource_id": "RES001", "permission": "read", "authorised": 1},
+    {"user_id": "U001", "resource_id": "RES002", "permission": "read", "authorised": 1},
+    {"user_id": "U002", "resource_id": "RES001", "permission": "read", "authorised": 1},
+    {"user_id": "U002", "resource_id": "RES002", "permission": "read", "authorised": 1},
+    {"user_id": "U003", "resource_id": "RES001", "permission": "read", "authorised": 0},
+    {"user_id": "U003", "resource_id": "RES002", "permission": "read", "authorised": 0}
+  ],
+  "_note": "U001 and U002 have R01. U003 has no role. R01 grants read on all resources. So U001 and U002 can read everything; U003 cannot. 4 authorised, 2 not authorised.",
+  "users": [
+    {"user_id": "U001", "department": "Finance", "seniority": 3, "clearance": "internal"},
+    {"user_id": "U002", "department": "Finance", "seniority": 5, "clearance": "internal"},
+    {"user_id": "U003", "department": "HR", "seniority": 7, "clearance": "public"}
+  ],
+  "roles": [
+    {"role_id": "R01", "role_name": "Finance_Analyst"},
+    {"role_id": "R02", "role_name": "HR_Specialist"}
+  ],
+  "permissions": [
+    {"permission_id": "read"}
+  ],
+  "resources": [
+    {"resource_id": "RES001", "department": "Finance", "sensitivity": "low", "type": "report"},
+    {"resource_id": "RES002", "department": "Finance", "sensitivity": "medium", "type": "document"}
+  ],
+  "user_roles": [
+    {"user_id": "U001", "role_id": "R01"},
+    {"user_id": "U002", "role_id": "R01"}
+  ],
+  "role_permissions": [
+    {"role_id": "R01", "permission_id": "read", "resource_id": ""},
+    {"role_id": "R02", "permission_id": "read", "resource_id": ""}
+  ]
+}

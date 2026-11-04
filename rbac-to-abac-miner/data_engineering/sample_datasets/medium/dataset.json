@@ -1,0 +1,3295 @@
+{
+  "users": [
+    {
+      "user_id": "U001",
+      "department": "Finance",
+      "seniority": 6,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U002",
+      "department": "Security",
+      "seniority": 14,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U003",
+      "department": "Marketing",
+      "seniority": 8,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U004",
+      "department": "Legal",
+      "seniority": 11,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U005",
+      "department": "Legal",
+      "seniority": 7,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U006",
+      "department": "Security",
+      "seniority": 4,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U007",
+      "department": "Finance",
+      "seniority": 12,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U008",
+      "department": "Marketing",
+      "seniority": 15,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U009",
+      "department": "HR",
+      "seniority": 4,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U010",
+      "department": "Finance",
+      "seniority": 12,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U011",
+      "department": "Operations",
+      "seniority": 4,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U012",
+      "department": "IT",
+      "seniority": 11,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U013",
+      "department": "Marketing",
+      "seniority": 12,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U014",
+      "department": "Security",
+      "seniority": 7,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U015",
+      "department": "Marketing",
+      "seniority": 12,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U016",
+      "department": "Security",
+      "seniority": 5,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U017",
+      "department": "Operations",
+      "seniority": 2,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U018",
+      "department": "HR",
+      "seniority": 2,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U019",
+      "department": "Security",
+      "seniority": 7,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U020",
+      "department": "Legal",
+      "seniority": 14,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U021",
+      "department": "Operations",
+      "seniority": 2,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U022",
+      "department": "Engineering",
+      "seniority": 7,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U023",
+      "department": "HR",
+      "seniority": 11,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U024",
+      "department": "IT",
+      "seniority": 4,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U025",
+      "department": "Security",
+      "seniority": 11,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U026",
+      "department": "Marketing",
+      "seniority": 5,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U027",
+      "department": "Legal",
+      "seniority": 13,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U028",
+      "department": "Security",
+      "seniority": 9,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U029",
+      "department": "Operations",
+      "seniority": 9,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U030",
+      "department": "Legal",
+      "seniority": 3,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U031",
+      "department": "Legal",
+      "seniority": 7,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U032",
+      "department": "HR",
+      "seniority": 13,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U033",
+      "department": "Finance",
+      "seniority": 1,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U034",
+      "department": "Operations",
+      "seniority": 12,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U035",
+      "department": "IT",
+      "seniority": 8,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U036",
+      "department": "Finance",
+      "seniority": 11,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U037",
+      "department": "Security",
+      "seniority": 10,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U038",
+      "department": "Security",
+      "seniority": 7,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U039",
+      "department": "Engineering",
+      "seniority": 5,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U040",
+      "department": "Marketing",
+      "seniority": 10,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U041",
+      "department": "HR",
+      "seniority": 3,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U042",
+      "department": "Security",
+      "seniority": 9,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U043",
+      "department": "Marketing",
+      "seniority": 2,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U044",
+      "department": "Engineering",
+      "seniority": 10,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U045",
+      "department": "Finance",
+      "seniority": 10,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U046",
+      "department": "IT",
+      "seniority": 2,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U047",
+      "department": "Legal",
+      "seniority": 12,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U048",
+      "department": "IT",
+      "seniority": 7,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U049",
+      "department": "Marketing",
+      "seniority": 12,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U050",
+      "department": "Security",
+      "seniority": 1,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U051",
+      "department": "Security",
+      "seniority": 3,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U052",
+      "department": "HR",
+      "seniority": 8,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U053",
+      "department": "Engineering",
+      "seniority": 3,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U054",
+      "department": "Legal",
+      "seniority": 5,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U055",
+      "department": "Legal",
+      "seniority": 10,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U056",
+      "department": "Finance",
+      "seniority": 3,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U057",
+      "department": "Operations",
+      "seniority": 11,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U058",
+      "department": "HR",
+      "seniority": 2,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U059",
+      "department": "Marketing",
+      "seniority": 3,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U060",
+      "department": "Marketing",
+      "seniority": 9,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U061",
+      "department": "IT",
+      "seniority": 12,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U062",
+      "department": "Marketing",
+      "seniority": 3,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U063",
+      "department": "Engineering",
+      "seniority": 5,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U064",
+      "department": "IT",
+      "seniority": 14,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U065",
+      "department": "Legal",
+      "seniority": 15,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U066",
+      "department": "Engineering",
+      "seniority": 9,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U067",
+      "department": "IT",
+      "seniority": 7,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U068",
+      "department": "Engineering",
+      "seniority": 6,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U069",
+      "department": "Finance",
+      "seniority": 10,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U070",
+      "department": "Legal",
+      "seniority": 9,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U071",
+      "department": "Security",
+      "seniority": 5,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U072",
+      "department": "HR",
+      "seniority": 1,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U073",
+      "department": "Legal",
+      "seniority": 3,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U074",
+      "department": "HR",
+      "seniority": 15,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U075",
+      "department": "Marketing",
+      "seniority": 7,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U076",
+      "department": "Legal",
+      "seniority": 8,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U077",
+      "department": "Engineering",
+      "seniority": 8,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U078",
+      "department": "HR",
+      "seniority": 12,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U079",
+      "department": "Operations",
+      "seniority": 1,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U080",
+      "department": "Marketing",
+      "seniority": 2,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U081",
+      "department": "IT",
+      "seniority": 5,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U082",
+      "department": "Legal",
+      "seniority": 8,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U083",
+      "department": "HR",
+      "seniority": 11,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U084",
+      "department": "Security",
+      "seniority": 8,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U085",
+      "department": "Marketing",
+      "seniority": 7,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U086",
+      "department": "Marketing",
+      "seniority": 15,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U087",
+      "department": "Finance",
+      "seniority": 3,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U088",
+      "department": "Engineering",
+      "seniority": 9,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U089",
+      "department": "Security",
+      "seniority": 9,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U090",
+      "department": "Security",
+      "seniority": 8,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U091",
+      "department": "Legal",
+      "seniority": 13,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U092",
+      "department": "Security",
+      "seniority": 5,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U093",
+      "department": "Security",
+      "seniority": 15,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U094",
+      "department": "Legal",
+      "seniority": 5,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U095",
+      "department": "IT",
+      "seniority": 9,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U096",
+      "department": "Engineering",
+      "seniority": 8,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U097",
+      "department": "HR",
+      "seniority": 13,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U098",
+      "department": "Marketing",
+      "seniority": 7,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U099",
+      "department": "Marketing",
+      "seniority": 5,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U100",
+      "department": "HR",
+      "seniority": 1,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U101",
+      "department": "Security",
+      "seniority": 6,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U102",
+      "department": "HR",
+      "seniority": 13,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U103",
+      "department": "Security",
+      "seniority": 1,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U104",
+      "department": "Finance",
+      "seniority": 14,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U105",
+      "department": "Security",
+      "seniority": 9,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U106",
+      "department": "Security",
+      "seniority": 3,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U107",
+      "department": "Security",
+      "seniority": 5,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U108",
+      "department": "Marketing",
+      "seniority": 9,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U109",
+      "department": "Legal",
+      "seniority": 5,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U110",
+      "department": "Marketing",
+      "seniority": 2,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U111",
+      "department": "Engineering",
+      "seniority": 10,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U112",
+      "department": "Security",
+      "seniority": 11,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U113",
+      "department": "Operations",
+      "seniority": 2,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U114",
+      "department": "Legal",
+      "seniority": 5,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U115",
+      "department": "Operations",
+      "seniority": 4,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U116",
+      "department": "Operations",
+      "seniority": 10,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U117",
+      "department": "Finance",
+      "seniority": 11,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U118",
+      "department": "HR",
+      "seniority": 11,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U119",
+      "department": "HR",
+      "seniority": 15,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U120",
+      "department": "Finance",
+      "seniority": 12,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U121",
+      "department": "Legal",
+      "seniority": 5,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U122",
+      "department": "Marketing",
+      "seniority": 2,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U123",
+      "department": "Marketing",
+      "seniority": 10,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U124",
+      "department": "Legal",
+      "seniority": 14,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U125",
+      "department": "Security",
+      "seniority": 15,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U126",
+      "department": "Operations",
+      "seniority": 4,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U127",
+      "department": "Finance",
+      "seniority": 4,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U128",
+      "department": "Security",
+      "seniority": 1,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U129",
+      "department": "Operations",
+      "seniority": 3,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U130",
+      "department": "Marketing",
+      "seniority": 9,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U131",
+      "department": "Operations",
+      "seniority": 9,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U132",
+      "department": "Operations",
+      "seniority": 6,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U133",
+      "department": "Finance",
+      "seniority": 5,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U134",
+      "department": "Operations",
+      "seniority": 13,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U135",
+      "department": "Security",
+      "seniority": 7,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U136",
+      "department": "Engineering",
+      "seniority": 13,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U137",
+      "department": "Operations",
+      "seniority": 15,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U138",
+      "department": "Finance",
+      "seniority": 5,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U139",
+      "department": "Engineering",
+      "seniority": 4,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U140",
+      "department": "Legal",
+      "seniority": 15,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U141",
+      "department": "IT",
+      "seniority": 10,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U142",
+      "department": "HR",
+      "seniority": 5,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U143",
+      "department": "Engineering",
+      "seniority": 10,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U144",
+      "department": "Legal",
+      "seniority": 8,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U145",
+      "department": "IT",
+      "seniority": 14,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U146",
+      "department": "Security",
+      "seniority": 4,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U147",
+      "department": "Finance",
+      "seniority": 15,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U148",
+      "department": "HR",
+      "seniority": 15,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U149",
+      "department": "Security",
+      "seniority": 3,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U150",
+      "department": "Finance",
+      "seniority": 3,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U151",
+      "department": "Security",
+      "seniority": 8,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U152",
+      "department": "Engineering",
+      "seniority": 1,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U153",
+      "department": "IT",
+      "seniority": 5,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U154",
+      "department": "Engineering",
+      "seniority": 7,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U155",
+      "department": "Legal",
+      "seniority": 15,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U156",
+      "department": "Marketing",
+      "seniority": 15,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U157",
+      "department": "HR",
+      "seniority": 3,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U158",
+      "department": "Operations",
+      "seniority": 14,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U159",
+      "department": "Operations",
+      "seniority": 2,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U160",
+      "department": "Security",
+      "seniority": 12,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U161",
+      "department": "IT",
+      "seniority": 13,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U162",
+      "department": "Marketing",
+      "seniority": 14,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U163",
+      "department": "Legal",
+      "seniority": 4,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U164",
+      "department": "Legal",
+      "seniority": 14,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U165",
+      "department": "Legal",
+      "seniority": 2,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U166",
+      "department": "Security",
+      "seniority": 8,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U167",
+      "department": "Engineering",
+      "seniority": 8,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U168",
+      "department": "HR",
+      "seniority": 5,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U169",
+      "department": "Engineering",
+      "seniority": 1,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U170",
+      "department": "Finance",
+      "seniority": 12,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U171",
+      "department": "Finance",
+      "seniority": 6,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U172",
+      "department": "Finance",
+      "seniority": 10,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U173",
+      "department": "Security",
+      "seniority": 7,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U174",
+      "department": "Marketing",
+      "seniority": 6,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U175",
+      "department": "Marketing",
+      "seniority": 14,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U176",
+      "department": "Legal",
+      "seniority": 2,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U177",
+      "department": "Marketing",
+      "seniority": 12,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U178",
+      "department": "HR",
+      "seniority": 12,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U179",
+      "department": "IT",
+      "seniority": 6,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U180",
+      "department": "Operations",
+      "seniority": 4,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U181",
+      "department": "IT",
+      "seniority": 1,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U182",
+      "department": "HR",
+      "seniority": 15,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U183",
+      "department": "Legal",
+      "seniority": 15,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U184",
+      "department": "Marketing",
+      "seniority": 4,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U185",
+      "department": "Legal",
+      "seniority": 1,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U186",
+      "department": "Legal",
+      "seniority": 2,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U187",
+      "department": "HR",
+      "seniority": 2,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U188",
+      "department": "Legal",
+      "seniority": 13,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U189",
+      "department": "HR",
+      "seniority": 14,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U190",
+      "department": "Engineering",
+      "seniority": 3,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U191",
+      "department": "Marketing",
+      "seniority": 12,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U192",
+      "department": "Marketing",
+      "seniority": 3,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U193",
+      "department": "Operations",
+      "seniority": 6,
+      "clearance": "public"
+    },
+    {
+      "user_id": "U194",
+      "department": "Engineering",
+      "seniority": 9,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U195",
+      "department": "IT",
+      "seniority": 11,
+      "clearance": "internal"
+    },
+    {
+      "user_id": "U196",
+      "department": "Finance",
+      "seniority": 14,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U197",
+      "department": "Engineering",
+      "seniority": 1,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U198",
+      "department": "Finance",
+      "seniority": 3,
+      "clearance": "secret"
+    },
+    {
+      "user_id": "U199",
+      "department": "Engineering",
+      "seniority": 5,
+      "clearance": "confidential"
+    },
+    {
+      "user_id": "U200",
+      "department": "IT",
+      "seniority": 5,
+      "clearance": "confidential"
+    }
+  ],
+  "roles": [
+    {
+      "role_id": "R01",
+      "role_name": "Finance_Analyst"
+    },
+    {
+      "role_id": "R02",
+      "role_name": "HR_Specialist"
+    },
+    {
+      "role_id": "R03",
+      "role_name": "Engineering_Lead"
+    },
+    {
+      "role_id": "R04",
+      "role_name": "Legal_Advisor"
+    },
+    {
+      "role_id": "R05",
+      "role_name": "Operations_Manager"
+    },
+    {
+      "role_id": "R06",
+      "role_name": "Marketing_Executive"
+    },
+    {
+      "role_id": "R07",
+      "role_name": "Security_Officer"
+    },
+    {
+      "role_id": "R08",
+      "role_name": "IT_Admin"
+    }
+  ],
+  "permissions": [
+    {
+      "permission_id": "read"
+    },
+    {
+      "permission_id": "write"
+    },
+    {
+      "permission_id": "delete"
+    },
+    {
+      "permission_id": "admin"
+    },
+    {
+      "permission_id": "execute"
+    }
+  ],
+  "resources": [
+    {
+      "resource_id": "RES001",
+      "department": "Operations",
+      "sensitivity": "medium",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES002",
+      "department": "Security",
+      "sensitivity": "medium",
+      "type": "document"
+    },
+    {
+      "resource_id": "RES003",
+      "department": "Marketing",
+      "sensitivity": "low",
+      "type": "database"
+    },
+    {
+      "resource_id": "RES004",
+      "department": "HR",
+      "sensitivity": "low",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES005",
+      "department": "Security",
+      "sensitivity": "low",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES006",
+      "department": "Operations",
+      "sensitivity": "medium",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES007",
+      "department": "Engineering",
+      "sensitivity": "low",
+      "type": "database"
+    },
+    {
+      "resource_id": "RES008",
+      "department": "Operations",
+      "sensitivity": "medium",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES009",
+      "department": "IT",
+      "sensitivity": "medium",
+      "type": "document"
+    },
+    {
+      "resource_id": "RES010",
+      "department": "Security",
+      "sensitivity": "medium",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES011",
+      "department": "Security",
+      "sensitivity": "high",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES012",
+      "department": "Legal",
+      "sensitivity": "medium",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES013",
+      "department": "Security",
+      "sensitivity": "high",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES014",
+      "department": "Legal",
+      "sensitivity": "high",
+      "type": "document"
+    },
+    {
+      "resource_id": "RES015",
+      "department": "Marketing",
+      "sensitivity": "high",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES016",
+      "department": "Marketing",
+      "sensitivity": "high",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES017",
+      "department": "HR",
+      "sensitivity": "medium",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES018",
+      "department": "Engineering",
+      "sensitivity": "medium",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES019",
+      "department": "Finance",
+      "sensitivity": "low",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES020",
+      "department": "HR",
+      "sensitivity": "medium",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES021",
+      "department": "Legal",
+      "sensitivity": "low",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES022",
+      "department": "Legal",
+      "sensitivity": "high",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES023",
+      "department": "HR",
+      "sensitivity": "high",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES024",
+      "department": "Legal",
+      "sensitivity": "low",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES025",
+      "department": "Operations",
+      "sensitivity": "high",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES026",
+      "department": "HR",
+      "sensitivity": "low",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES027",
+      "department": "Engineering",
+      "sensitivity": "high",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES028",
+      "department": "Engineering",
+      "sensitivity": "low",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES029",
+      "department": "Operations",
+      "sensitivity": "medium",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES030",
+      "department": "Engineering",
+      "sensitivity": "medium",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES031",
+      "department": "Marketing",
+      "sensitivity": "high",
+      "type": "document"
+    },
+    {
+      "resource_id": "RES032",
+      "department": "Engineering",
+      "sensitivity": "medium",
+      "type": "document"
+    },
+    {
+      "resource_id": "RES033",
+      "department": "Legal",
+      "sensitivity": "high",
+      "type": "database"
+    },
+    {
+      "resource_id": "RES034",
+      "department": "Legal",
+      "sensitivity": "high",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES035",
+      "department": "HR",
+      "sensitivity": "low",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES036",
+      "department": "Marketing",
+      "sensitivity": "high",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES037",
+      "department": "HR",
+      "sensitivity": "high",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES038",
+      "department": "Engineering",
+      "sensitivity": "medium",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES039",
+      "department": "Security",
+      "sensitivity": "high",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES040",
+      "department": "IT",
+      "sensitivity": "high",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES041",
+      "department": "Marketing",
+      "sensitivity": "high",
+      "type": "document"
+    },
+    {
+      "resource_id": "RES042",
+      "department": "IT",
+      "sensitivity": "high",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES043",
+      "department": "Security",
+      "sensitivity": "medium",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES044",
+      "department": "Legal",
+      "sensitivity": "low",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES045",
+      "department": "Security",
+      "sensitivity": "high",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES046",
+      "department": "Engineering",
+      "sensitivity": "medium",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES047",
+      "department": "Legal",
+      "sensitivity": "medium",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES048",
+      "department": "Operations",
+      "sensitivity": "low",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES049",
+      "department": "IT",
+      "sensitivity": "low",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES050",
+      "department": "Security",
+      "sensitivity": "low",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES051",
+      "department": "Legal",
+      "sensitivity": "high",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES052",
+      "department": "Marketing",
+      "sensitivity": "low",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES053",
+      "department": "HR",
+      "sensitivity": "low",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES054",
+      "department": "Security",
+      "sensitivity": "high",
+      "type": "document"
+    },
+    {
+      "resource_id": "RES055",
+      "department": "Operations",
+      "sensitivity": "medium",
+      "type": "document"
+    },
+    {
+      "resource_id": "RES056",
+      "department": "Operations",
+      "sensitivity": "medium",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES057",
+      "department": "Security",
+      "sensitivity": "high",
+      "type": "document"
+    },
+    {
+      "resource_id": "RES058",
+      "department": "Marketing",
+      "sensitivity": "medium",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES059",
+      "department": "Finance",
+      "sensitivity": "low",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES060",
+      "department": "Engineering",
+      "sensitivity": "high",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES061",
+      "department": "HR",
+      "sensitivity": "low",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES062",
+      "department": "Marketing",
+      "sensitivity": "medium",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES063",
+      "department": "Finance",
+      "sensitivity": "high",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES064",
+      "department": "HR",
+      "sensitivity": "high",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES065",
+      "department": "Operations",
+      "sensitivity": "medium",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES066",
+      "department": "Marketing",
+      "sensitivity": "high",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES067",
+      "department": "Operations",
+      "sensitivity": "medium",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES068",
+      "department": "Security",
+      "sensitivity": "medium",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES069",
+      "department": "IT",
+      "sensitivity": "low",
+      "type": "database"
+    },
+    {
+      "resource_id": "RES070",
+      "department": "HR",
+      "sensitivity": "medium",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES071",
+      "department": "IT",
+      "sensitivity": "medium",
+      "type": "database"
+    },
+    {
+      "resource_id": "RES072",
+      "department": "Operations",
+      "sensitivity": "high",
+      "type": "document"
+    },
+    {
+      "resource_id": "RES073",
+      "department": "Marketing",
+      "sensitivity": "low",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES074",
+      "department": "Finance",
+      "sensitivity": "high",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES075",
+      "department": "Operations",
+      "sensitivity": "high",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES076",
+      "department": "Marketing",
+      "sensitivity": "high",
+      "type": "database"
+    },
+    {
+      "resource_id": "RES077",
+      "department": "Operations",
+      "sensitivity": "medium",
+      "type": "database"
+    },
+    {
+      "resource_id": "RES078",
+      "department": "Finance",
+      "sensitivity": "low",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES079",
+      "department": "Operations",
+      "sensitivity": "low",
+      "type": "database"
+    },
+    {
+      "resource_id": "RES080",
+      "department": "IT",
+      "sensitivity": "high",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES081",
+      "department": "Marketing",
+      "sensitivity": "high",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES082",
+      "department": "HR",
+      "sensitivity": "medium",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES083",
+      "department": "IT",
+      "sensitivity": "low",
+      "type": "database"
+    },
+    {
+      "resource_id": "RES084",
+      "department": "IT",
+      "sensitivity": "low",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES085",
+      "department": "HR",
+      "sensitivity": "medium",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES086",
+      "department": "Security",
+      "sensitivity": "medium",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES087",
+      "department": "Legal",
+      "sensitivity": "low",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES088",
+      "department": "Operations",
+      "sensitivity": "high",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES089",
+      "department": "Legal",
+      "sensitivity": "medium",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES090",
+      "department": "Security",
+      "sensitivity": "low",
+      "type": "document"
+    },
+    {
+      "resource_id": "RES091",
+      "department": "IT",
+      "sensitivity": "low",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES092",
+      "department": "Security",
+      "sensitivity": "medium",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES093",
+      "department": "IT",
+      "sensitivity": "high",
+      "type": "database"
+    },
+    {
+      "resource_id": "RES094",
+      "department": "IT",
+      "sensitivity": "high",
+      "type": "portal"
+    },
+    {
+      "resource_id": "RES095",
+      "department": "Finance",
+      "sensitivity": "medium",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES096",
+      "department": "Engineering",
+      "sensitivity": "low",
+      "type": "application"
+    },
+    {
+      "resource_id": "RES097",
+      "department": "Marketing",
+      "sensitivity": "high",
+      "type": "database"
+    },
+    {
+      "resource_id": "RES098",
+      "department": "Operations",
+      "sensitivity": "medium",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES099",
+      "department": "Finance",
+      "sensitivity": "low",
+      "type": "report"
+    },
+    {
+      "resource_id": "RES100",
+      "department": "Finance",
+      "sensitivity": "medium",
+      "type": "application"
+    }
+  ],
+  "user_roles": [
+    {
+      "user_id": "U001",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U001",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U002",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U003",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U004",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U005",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U006",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U007",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U008",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U009",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U010",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U011",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U012",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U013",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U014",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U015",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U016",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U017",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U018",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U019",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U020",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U021",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U022",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U023",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U024",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U025",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U026",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U027",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U028",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U029",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U030",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U031",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U032",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U033",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U034",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U034",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U035",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U036",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U037",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U038",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U039",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U040",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U041",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U042",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U043",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U044",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U045",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U046",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U047",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U048",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U049",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U050",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U051",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U052",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U053",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U054",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U055",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U056",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U057",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U058",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U059",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U060",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U060",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U061",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U061",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U062",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U063",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U064",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U065",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U066",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U067",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U067",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U068",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U069",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U070",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U071",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U072",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U073",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U074",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U075",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U076",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U077",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U078",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U079",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U080",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U081",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U082",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U082",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U083",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U084",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U085",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U086",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U087",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U088",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U089",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U090",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U091",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U092",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U093",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U094",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U095",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U096",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U097",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U098",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U099",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U100",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U101",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U102",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U102",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U103",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U104",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U105",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U106",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U107",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U108",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U109",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U110",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U111",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U112",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U113",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U114",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U114",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U115",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U116",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U117",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U118",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U119",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U120",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U121",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U122",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U123",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U124",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U125",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U126",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U127",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U128",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U129",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U130",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U131",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U132",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U133",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U134",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U135",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U136",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U136",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U137",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U138",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U139",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U140",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U140",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U141",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U142",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U143",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U144",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U145",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U146",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U147",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U148",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U149",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U150",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U151",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U152",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U153",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U154",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U155",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U156",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U157",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U158",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U159",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U160",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U161",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U162",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U163",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U164",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U165",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U165",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U166",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U167",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U168",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U169",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U170",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U171",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U172",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U173",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U174",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U175",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U176",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U177",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U177",
+      "role_id": "R07"
+    },
+    {
+      "user_id": "U178",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U179",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U179",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U180",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U181",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U182",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U183",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U184",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U185",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U186",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U186",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U187",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U188",
+      "role_id": "R04"
+    },
+    {
+      "user_id": "U189",
+      "role_id": "R02"
+    },
+    {
+      "user_id": "U190",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U190",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U191",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U192",
+      "role_id": "R06"
+    },
+    {
+      "user_id": "U192",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U193",
+      "role_id": "R05"
+    },
+    {
+      "user_id": "U194",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U195",
+      "role_id": "R08"
+    },
+    {
+      "user_id": "U196",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U197",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U198",
+      "role_id": "R01"
+    },
+    {
+      "user_id": "U199",
+      "role_id": "R03"
+    },
+    {
+      "user_id": "U200",
+      "role_id": "R08"
+    }
+  ],
+  "role_permissions": [
+    {
+      "role_id": "R01",
+      "permission_id": "read",
+      "resource_id": ""
+    },
+    {
+      "role_id": "R01",
+      "permission_id": "write",
+      "resource_id": "RES019"
+    },
+    {
+      "role_id": "R01",
+      "permission_id": "write",
+      "resource_id": "RES059"
+    },
+    {
+      "role_id": "R01",
+      "permission_id": "write",
+      "resource_id": "RES063"
+    },
+    {
+      "role_id": "R01",
+      "permission_id": "write",
+      "resource_id": "RES074"
+    },
+    {
+      "role_id": "R01",
+      "permission_id": "write",
+      "resource_id": "RES078"
+    },
+    {
+      "role_id": "R01",
+      "permission_id": "write",
+      "resource_id": "RES095"
+    },
+    {
+      "role_id": "R01",
+      "permission_id": "write",
+      "resource_id": "RES099"
+    },
+    {
+      "role_id": "R01",
+      "permission_id": "write",
+      "resource_id": "RES100"
+    },
+    {
+      "role_id": "R02",
+      "permission_id": "read",
+      "resource_id": ""
+    },
+    {
+      "role_id": "R02",
+      "permission_id": "write",
+      "resource_id": "RES004"
+    },
+    {
+      "role_id": "R02",
+      "permission_id": "write",
+      "resource_id": "RES017"
+    },
+    {
+      "role_id": "R02",
+      "permission_id": "write",
+      "resource_id": "RES020"
+    },
+    {
+      "role_id": "R02",
+      "permission_id": "write",
+      "resource_id": "RES023"
+    },
+    {
+      "role_id": "R02",
+      "permission_id": "write",
+      "resource_id": "RES026"
+    },
+    {
+      "role_id": "R02",
+      "permission_id": "write",
+      "resource_id": "RES035"
+    },
+    {
+      "role_id": "R02",
+      "permission_id": "write",
+      "resource_id": "RES037"
+    },
+    {
+      "role_id": "R02",
+      "permission_id": "write",
+      "resource_id": "RES053"
+    },
+    {
+      "role_id": "R02",
+      "permission_id": "write",
+      "resource_id": "RES061"
+    },
+    {
+      "role_id": "R02",
+      "permission_id": "write",
+      "resource_id": "RES064"
+    },
+    {
+      "role_id": "R02",
+      "permission_id": "write",
+      "resource_id": "RES070"
+    },
+    {
+      "role_id": "R02",
+      "permission_id": "write",
+      "resource_id": "RES082"
+    },
+    {
+      "role_id": "R02",
+      "permission_id": "write",
+      "resource_id": "RES085"
+    },
+    {
+      "role_id": "R02",
+      "permission_id": "admin",
+      "resource_id": ""
+    },
+    {
+      "role_id": "R02",
+      "permission_id": "execute",
+      "resource_id": ""
+    },
+    {
+      "role_id": "R03",
+      "permission_id": "read",
+      "resource_id": ""
+    },
+    {
+      "role_id": "R03",
+      "permission_id": "write",
+      "resource_id": "RES007"
+    },
+    {
+      "role_id": "R03",
+      "permission_id": "write",
+      "resource_id": "RES018"
+    },
+    {
+      "role_id": "R03",
+      "permission_id": "write",
+      "resource_id": "RES027"
+    },
+    {
+      "role_id": "R03",
+      "permission_id": "write",
+      "resource_id": "RES028"
+    },
+    {
+      "role_id": "R03",
+      "permission_id": "write",
+      "resource_id": "RES030"
+    },
+    {
+      "role_id": "R03",
+      "permission_id": "write",
+      "resource_id": "RES032"
+    },
+    {
+      "role_id": "R03",
+      "permission_id": "write",
+      "resource_id": "RES038"
+    },
+    {
+      "role_id": "R03",
+      "permission_id": "write",
+      "resource_id": "RES046"
+    },
+    {
+      "role_id": "R03",
+      "permission_id": "write",
+      "resource_id": "RES060"
+    },
+    {
+      "role_id": "R03",
+      "permission_id": "write",
+      "resource_id": "RES096"
+    },
+    {
+      "role_id": "R04",
+      "permission_id": "read",
+      "resource_id": ""
+    },
+    {
+      "role_id": "R04",
+      "permission_id": "write",
+      "resource_id": "RES012"
+    },
+    {
+      "role_id": "R04",
+      "permission_id": "write",
+      "resource_id": "RES014"
+    },
+    {
+      "role_id": "R04",
+      "permission_id": "write",
+      "resource_id": "RES021"
+    },
+    {
+      "role_id": "R04",
+      "permission_id": "write",
+      "resource_id": "RES022"
+    },
+    {
+      "role_id": "R04",
+      "permission_id": "write",
+      "resource_id": "RES024"
+    },
+    {
+      "role_id": "R04",
+      "permission_id": "write",
+      "resource_id": "RES033"
+    },
+    {
+      "role_id": "R04",
+      "permission_id": "write",
+      "resource_id": "RES034"
+    },
+    {
+      "role_id": "R04",
+      "permission_id": "write",
+      "resource_id": "RES044"
+    },
+    {
+      "role_id": "R04",
+      "permission_id": "write",
+      "resource_id": "RES047"
+    },
+    {
+      "role_id": "R04",
+      "permission_id": "write",
+      "resource_id": "RES051"
+    },
+    {
+      "role_id": "R04",
+      "permission_id": "write",
+      "resource_id": "RES087"
+    },
+    {
+      "role_id": "R04",
+      "permission_id": "write",
+      "resource_id": "RES089"
+    },
+    {
+      "role_id": "R05",
+      "permission_id": "read",
+      "resource_id": ""
+    },
+    {
+      "role_id": "R05",
+      "permission_id": "write",
+      "resource_id": "RES001"
+    },
+    {
+      "role_id": "R05",
+      "permission_id": "write",
+      "resource_id": "RES006"
+    },
+    {
+      "role_id": "R05",
+      "permission_id": "write",
+      "resource_id": "RES008"
+    },
+    {
+      "role_id": "R05",
+      "permission_id": "write",
+      "resource_id": "RES025"
+    },
+    {
+      "role_id": "R05",
+      "permission_id": "write",
+      "resource_id": "RES029"
+    },
+    {
+      "role_id": "R05",
+      "permission_id": "write",
+      "resource_id": "RES048"
+    },
+    {
+      "role_id": "R05",
+      "permission_id": "write",
+      "resource_id": "RES055"
+    },
+    {
+      "role_id": "R05",
+      "permission_id": "write",
+      "resource_id": "RES056"
+    },
+    {
+      "role_id": "R05",
+      "permission_id": "write",
+      "resource_id": "RES065"
+    },
+    {
+      "role_id": "R05",
+      "permission_id": "write",
+      "resource_id": "RES067"
+    },
+    {
+      "role_id": "R05",
+      "permission_id": "write",
+      "resource_id": "RES072"
+    },
+    {
+      "role_id": "R05",
+      "permission_id": "write",
+      "resource_id": "RES075"
+    },
+    {
+      "role_id": "R05",
+      "permission_id": "write",
+      "resource_id": "RES077"
+    },
+    {
+      "role_id": "R05",
+      "permission_id": "write",
+      "resource_id": "RES079"
+    },
+    {
+      "role_id": "R05",
+      "permission_id": "write",
+      "resource_id": "RES088"
+    },
+    {
+      "role_id": "R05",
+      "permission_id": "write",
+      "resource_id": "RES098"
+    },
+    {
+      "role_id": "R05",
+      "permission_id": "delete",
+      "resource_id": ""
+    },
+    {
+      "role_id": "R06",
+      "permission_id": "read",
+      "resource_id": ""
+    },
+    {
+      "role_id": "R06",
+      "permission_id": "write",
+      "resource_id": "RES003"
+    },
+    {
+      "role_id": "R06",
+      "permission_id": "write",
+      "resource_id": "RES015"
+    },
+    {
+      "role_id": "R06",
+      "permission_id": "write",
+      "resource_id": "RES016"
+    },
+    {
+      "role_id": "R06",
+      "permission_id": "write",
+      "resource_id": "RES031"
+    },
+    {
+      "role_id": "R06",
+      "permission_id": "write",
+      "resource_id": "RES036"
+    },
+    {
+      "role_id": "R06",
+      "permission_id": "write",
+      "resource_id": "RES041"
+    },
+    {
+      "role_id": "R06",
+      "permission_id": "write",
+      "resource_id": "RES052"
+    },
+    {
+      "role_id": "R06",
+      "permission_id": "write",
+      "resource_id": "RES058"
+    },
+    {
+      "role_id": "R06",
+      "permission_id": "write",
+      "resource_id": "RES062"
+    },
+    {
+      "role_id": "R06",
+      "permission_id": "write",
+      "resource_id": "RES066"
+    },
+    {
+      "role_id": "R06",
+      "permission_id": "write",
+      "resource_id": "RES073"
+    },
+    {
+      "role_id": "R06",
+      "permission_id": "write",
+      "resource_id": "RES076"
+    },
+    {
+      "role_id": "R06",
+      "permission_id": "write",
+      "resource_id": "RES081"
+    },
+    {
+      "role_id": "R06",
+      "permission_id": "write",
+      "resource_id": "RES097"
+    },
+    {
+      "role_id": "R07",
+      "permission_id": "read",
+      "resource_id": ""
+    },
+    {
+      "role_id": "R07",
+      "permission_id": "write",
+      "resource_id": "RES002"
+    },
+    {
+      "role_id": "R07",
+      "permission_id": "write",
+      "resource_id": "RES005"
+    },
+    {
+      "role_id": "R07",
+      "permission_id": "write",
+      "resource_id": "RES010"
+    },
+    {
+      "role_id": "R07",
+      "permission_id": "write",
+      "resource_id": "RES011"
+    },
+    {
+      "role_id": "R07",
+      "permission_id": "write",
+      "resource_id": "RES013"
+    },
+    {
+      "role_id": "R07",
+      "permission_id": "write",
+      "resource_id": "RES039"
+    },
+    {
+      "role_id": "R07",
+      "permission_id": "write",
+      "resource_id": "RES043"
+    },
+    {
+      "role_id": "R07",
+      "permission_id": "write",
+      "resource_id": "RES045"
+    },
+    {
+      "role_id": "R07",
+      "permission_id": "write",
+      "resource_id": "RES050"
+    },
+    {
+      "role_id": "R07",
+      "permission_id": "write",
+      "resource_id": "RES054"
+    },
+    {
+      "role_id": "R07",
+      "permission_id": "write",
+      "resource_id": "RES057"
+    },
+    {
+      "role_id": "R07",
+      "permission_id": "write",
+      "resource_id": "RES068"
+    },
+    {
+      "role_id": "R07",
+      "permission_id": "write",
+      "resource_id": "RES086"
+    },
+    {
+      "role_id": "R07",
+      "permission_id": "write",
+      "resource_id": "RES090"
+    },
+    {
+      "role_id": "R07",
+      "permission_id": "write",
+      "resource_id": "RES092"
+    },
+    {
+      "role_id": "R07",
+      "permission_id": "execute",
+      "resource_id": ""
+    },
+    {
+      "role_id": "R08",
+      "permission_id": "read",
+      "resource_id": ""
+    },
+    {
+      "role_id": "R08",
+      "permission_id": "write",
+      "resource_id": "RES009"
+    },
+    {
+      "role_id": "R08",
+      "permission_id": "write",
+      "resource_id": "RES040"
+    },
+    {
+      "role_id": "R08",
+      "permission_id": "write",
+      "resource_id": "RES042"
+    },
+    {
+      "role_id": "R08",
+      "permission_id": "write",
+      "resource_id": "RES049"
+    },
+    {
+      "role_id": "R08",
+      "permission_id": "write",
+      "resource_id": "RES069"
+    },
+    {
+      "role_id": "R08",
+      "permission_id": "write",
+      "resource_id": "RES071"
+    },
+    {
+      "role_id": "R08",
+      "permission_id": "write",
+      "resource_id": "RES080"
+    },
+    {
+      "role_id": "R08",
+      "permission_id": "write",
+      "resource_id": "RES083"
+    },
+    {
+      "role_id": "R08",
+      "permission_id": "write",
+      "resource_id": "RES084"
+    },
+    {
+      "role_id": "R08",
+      "permission_id": "write",
+      "resource_id": "RES091"
+    },
+    {
+      "role_id": "R08",
+      "permission_id": "write",
+      "resource_id": "RES093"
+    },
+    {
+      "role_id": "R08",
+      "permission_id": "write",
+      "resource_id": "RES094"
+    },
+    {
+      "role_id": "R08",
+      "permission_id": "admin",
+      "resource_id": ""
+    },
+    {
+      "role_id": "R08",
+      "permission_id": "execute",
+      "resource_id": ""
+    }
+  ]
+}
