@@ -1,0 +1,32 @@
+{
+  "id": "FEAT-002",
+  "type": "feat",
+  "description": "Implement rule optimisation pipeline: rule_merger (merge rules differing in one condition), rule_generalizer (safely drop conditions), rule_pruner (remove redundant/low-support rules). Each module reports counts for OptimisationSummary. All steps are evidence-based and never introduce over-privilege beyond configured tolerance.",
+  "status": "completed",
+  "steps": [
+    "Create policy_engine/rule_merger/merger.py. Import necessary types from shared.schemas.contracts (ABACRule, Condition, Operator) and policy_engine.schemas (OptimisationConfig, support, confidence). Implement merge_rules(rules: list[ABACRule], samples: pd.DataFrame, cfg: OptimisationConfig) -> tuple[list[ABACRule], int]. Logic per POLICY_ENGINE.md section 4: (1) identify pairs with same action and identical conditions except one attribute, (2) merge == values into 'in' set or widen numeric thresholds, (3) compute confidence on samples, accept only if >= cfg.min_confidence - cfg.confidence_tolerance, (4) new rule gets source='merged', derived_from=[parent rule_ids], status='optimised', new rule_id like 'M001'. Return (merged_rules + surviving_originals, n_merged_count).",
+    "In policy_engine/rule_merger/merger.py, handle edge cases: refuse conflicting merges (different actions, contradictory conditions). Add docstring explaining merge acceptance criteria and evidence-based validation. Wrap in try-except to never crash; log errors and skip problematic pairs.",
+    "Create policy_engine/rule_generalizer/generalizer.py. Import needed types. Implement generalise_rules(rules: list[ABACRule], samples: pd.DataFrame, cfg: OptimisationConfig) -> tuple[list[ABACRule], int]. Logic per POLICY_ENGINE.md section 4: (1) for each rule, try removing one condition at a time, (2) recompute confidence, (3) accept removal only if confidence >= cfg.min_confidence - cfg.confidence_tolerance AND added negatives within tolerance, (4) new rule gets source='generalised', derived_from=[original_id], status='optimised'. Return (generalised + unchanged, n_generalised_count).",
+    "In policy_engine/rule_generalizer/generalizer.py, add docstring stating safe, evidence-based removal only. Ensure never accepts a generalisation that permits tuples the evidence does not support beyond tolerance.",
+    "Create policy_engine/rule_pruner/pruner.py. Import needed types. Implement prune_rules(rules: list[ABACRule], samples: pd.DataFrame, cfg: OptimisationConfig) -> tuple[list[ABACRule], int]. Logic per POLICY_ENGINE.md section 4: (1) drop rules with support < cfg.min_support, (2) drop redundant rules: a rule is redundant if its matched positives are a subset of positives matched by remaining rules. Return (pruned_rules, n_pruned_count). Must be idempotent: pruning twice gives same result.",
+    "In policy_engine/rule_pruner/pruner.py, add tests verifying idempotence: prune(prune(rules)) == prune(rules).",
+    "Update policy_engine/rule_merger/__init__.py to export merge_rules. Update policy_engine/rule_generalizer/__init__.py to export generalise_rules. Update policy_engine/rule_pruner/__init__.py to export prune_rules.",
+    "Add unit tests in policy_engine/tests/test_merger.py: test merging two == conditions into 'in' set, test merging numeric thresholds, test conflicting merge refused, test merged rule confidence checked against threshold, test derived_from and source fields populated correctly.",
+    "Add unit tests in policy_engine/tests/test_generalizer.py: test condition removal accepted when confidence stays above threshold, test removal rejected when confidence drops, test added negatives checked, test source='generalised' and derived_from set.",
+    "Add unit tests in policy_engine/tests/test_pruner.py: test low-support rule dropped, test redundant rule dropped (positives covered by others), test idempotence: prune(prune(X)) == prune(X), test empty input returns empty output."
+  ],
+  "acceptance_criteria": [
+    "merge_rules merges only when merged confidence meets threshold, refuses conflicting merges, sets source='merged' and derived_from correctly",
+    "generalise_rules removes conditions only when confidence and negative tolerance criteria met, sets source='generalised'",
+    "prune_rules removes low-support and redundant rules, is idempotent",
+    "All optimisation functions return tuple (rules, count) and never crash on malformed input",
+    "Tests pass: policy_engine/tests/test_merger.py, test_generalizer.py, test_pruner.py"
+  ],
+  "verification": [
+    "python -m pytest policy_engine/tests/test_merger.py -v",
+    "python -m pytest policy_engine/tests/test_generalizer.py -v",
+    "python -m pytest policy_engine/tests/test_pruner.py -v"
+  ],
+  "blocked_reason": null,
+  "findings": "All acceptance criteria met. merge_rules merges rules differing in one condition (== into 'in', numeric thresholds widened), validates merged confidence against threshold, refuses conflicting merges, and sets source='merged' with derived_from correctly. generalise_rules safely removes conditions only when confidence and negative tolerance criteria met, sets source='generalised'. prune_rules removes low-support and redundant rules, is idempotent. All functions return tuple (rules, count), never crash on malformed input, implement fail-safe error handling. All 24 tests pass (8 merger, 8 generalizer, 8 pruner)."
+}
