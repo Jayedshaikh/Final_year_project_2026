@@ -1,0 +1,18 @@
+{
+  "status": "ok",
+  "dataset_id": "ds_001",
+  "total_possible_tuples": 288,
+  "n_authorised": 96,
+  "n_unauthorised": 192,
+  "authorisation_density": 0.3333333333333333,
+  "sample": [
+    {
+      "user_id": "U001",
+      "resource_id": "RES003",
+      "permission": "read",
+      "roles_granting": [
+        "R_ANALYST"
+      ]
+    }
+  ]
+}

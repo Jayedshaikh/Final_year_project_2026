@@ -1,0 +1,6 @@
+{
+  "status": "error",
+  "code": "DATASET_NOT_FOUND",
+  "message": "No dataset with id ds_999",
+  "details": null
+}

@@ -1,0 +1,15 @@
+{
+  "status": "invalid",
+  "dataset_id": null,
+  "summary": null,
+  "issues": [
+    {
+      "severity": "error",
+      "code": "DANGLING_REFERENCE",
+      "file": "user_roles.csv",
+      "row": 3,
+      "column": "role_id",
+      "message": "role_id 'R99' not found in roles.csv"
+    }
+  ]
+}
