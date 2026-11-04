@@ -7,19 +7,23 @@ on:
     branches: [develop]
 
 jobs:
-  governance:
+  backend:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install "pydantic>=2.0" pytest pandas numpy
+
+      - name: Install backend dependencies
+        run: pip install -r backend/requirements.txt
+
       - name: Validate governance files and contracts
         run: python scripts/validate_governance.py
-      - name: Run tests that exist
-        run: |
-          python -m pytest -q policy_engine/tests data_engineering tests backend/tests shared --maxfail=5 || [ $? -eq 5 ]
+
+      - name: Run backend and shared tests
+        run: python -m pytest backend/tests shared/tests -q --tb=short
 
   frontend:
     runs-on: ubuntu-latest

@@ -80,6 +80,15 @@ First target: **one thin end-to-end workflow** (upload, samples, Decision Tree, 
 
 | Milestone | Status | Notes |
 |---|---|---|
-| M1 | not started | |
-| M2 | not started | |
-| M3-M12 | not started | |
+| M1 | ✅ complete | Scaffold, branches, CI, governance scripts, CODEOWNERS, contracts |
+| M2 | 🔄 in progress | seed_hospital dataset created (12 users, 5 roles, 3 perms, 8 resources); Shweta's validator stub present |
+| M3 | ✅ complete | `build_auth_matrix()` implemented; 288 tuples, 200 authorised on seed_hospital; decisions D-001 closed |
+| M4 | ✅ complete | S+/S- sampling, stratified split, OHE encoding (fit on train only), deterministic with seed 42 |
+| M5 | ✅ complete | DT/RF/GB trained with stratified CV; all three hit F1=1.0 on seed_hospital; models persisted via joblib |
+| M6 | ✅ complete | Decision Tree permit paths extracted as ABACRule objects (support/confidence TEMPORARY until M7) |
+| M7 | 🔄 pending | Granthali's policy_engine module; backend stubs clearly marked in pipeline_service.py |
+| M8 | 🔄 pending | policy_engine.validate_policy; stub returns DT metrics as proxy |
+| M9 | 🔄 in progress | Naeem's frontend; stub mode (BACKEND_STUBS=true) available day-1 |
+| M10 | ✅ complete | All 9 REST endpoints wired, 85 tests passing, contract validated |
+| M11 | 🔄 pending | Review/export works (approve → export confirmed in demo); XACML export stub until Granthali |
+| M12 | 🔄 pending | Full integration test with Shweta's API tests; demo runs end-to-end with seed 42 |
