@@ -1,0 +1,11 @@
+role_id,permission_id,resource_id
+R_DOCTOR,read,
+R_DOCTOR,write,
+R_NURSE,read,
+R_ANALYST,read,
+R_HR_MGR,read,
+R_HR_MGR,write,
+R_HR_MGR,delete,
+R_IT_ADMIN,read,
+R_IT_ADMIN,write,
+R_IT_ADMIN,delete,

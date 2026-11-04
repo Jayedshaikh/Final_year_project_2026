@@ -71,3 +71,22 @@ Returns a `TrainingResponse`. Defaults for omitted fields come from `TrainingCon
 ## 6. Contract tests (Shweta, `tests/test_api.py`)
 
 For each endpoint: call it with `fastapi.testclient.TestClient`, assert the status code, and validate the body with the matching model. Add negative tests: unknown ids (404), invalid dataset (400), export before approval (409), malformed body (422).
+
+## 7. Implementation status
+
+All 9 endpoints are **implemented and tested** in `backend/api/` + `backend/services/pipeline_service.py`.
+
+| Endpoint | Status | Notes |
+|---|---|---|
+| `POST /datasets/upload` | ✅ Real | File size checks, format validation, auth matrix built on upload |
+| `GET /datasets/{id}/authorisation` | ✅ Real | Full matrix from stored state |
+| `POST /training/run` | ✅ Real | DT+RF+GB, CV, rule extraction |
+| `GET /training/{run_id}/comparison` | ✅ Real | DT always `selected_for_extraction` |
+| `GET /training/{run_id}/rules` | ✅ Real | Candidate rules from DT permit paths |
+| `POST /policies/optimise/{run_id}` | ✅ Stub→Real | Stub until `policy_engine` ready; passes through rules |
+| `GET /policies/{id}/validation` | ✅ Stub→Real | Stub returns DT metrics proxy |
+| `POST /policies/{id}/review` | ✅ Real | Approve/reject/edit, no auto-approve |
+| `POST /policies/{id}/export` | ✅ Real | JSON + XACML stub; 409 if no approved rules |
+
+Tests: `backend/tests/test_api.py` — 20+ tests covering all endpoints and all error codes (400, 404, 409, 422).
+

@@ -1,0 +1,9 @@
+resource_id,type,sensitivity,department
+RES001,patient_record,high,radiology
+RES002,billing_report,medium,finance
+RES003,staff_schedule,low,hr
+RES004,lab_result,high,radiology
+RES005,payroll_data,high,finance
+RES006,it_config,high,it
+RES007,incident_report,medium,radiology
+RES008,audit_log,high,it

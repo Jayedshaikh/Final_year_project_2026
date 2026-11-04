@@ -1,0 +1,6 @@
+role_id,role_name
+R_DOCTOR,Doctor
+R_NURSE,Nurse
+R_ANALYST,Finance Analyst
+R_HR_MGR,HR Manager
+R_IT_ADMIN,IT Administrator

@@ -1,0 +1,13 @@
+user_id,department,position,seniority_years,clearance
+U001,radiology,doctor,8,high
+U002,finance,analyst,3,low
+U003,radiology,nurse,5,medium
+U004,hr,manager,10,medium
+U005,finance,manager,7,medium
+U006,radiology,doctor,12,high
+U007,it,admin,6,high
+U008,hr,staff,2,low
+U009,finance,analyst,1,low
+U010,radiology,nurse,4,medium
+U011,it,admin,9,high
+U012,oncology,doctor,15,high
