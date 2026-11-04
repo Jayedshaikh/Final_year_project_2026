@@ -58,9 +58,28 @@ def validate_policy(
     counted_statuses = {"candidate", "optimised", "approved", "edited"}
     active_rules = [r for r in rules if r.status in counted_statuses]
 
-    # Build attribute lookup dicts
-    user_attrs_dict = user_attrs_df.set_index("user_id").to_dict("index")
-    resource_attrs_dict = resource_attrs_df.set_index("resource_id").to_dict("index")
+    # Build attribute lookup dicts — normalise categorical values to lowercase
+    # to match rule condition values (which are lowercased during training/extraction)
+    def _normalise_attrs(df: pd.DataFrame, id_col: str) -> dict:
+        """Build attribute lookup dict with lowercased string values."""
+        result = {}
+        for _, row in df.iterrows():
+            key = row[id_col]
+            attrs = {}
+            for col in df.columns:
+                if col == id_col:
+                    continue
+                val = row[col]
+                # Lowercase strings; leave numbers as-is
+                if isinstance(val, str):
+                    attrs[col] = val.lower()
+                else:
+                    attrs[col] = val
+            result[key] = attrs
+        return result
+
+    user_attrs_dict = _normalise_attrs(user_attrs_df, "user_id")
+    resource_attrs_dict = _normalise_attrs(resource_attrs_df, "resource_id")
 
     # Initialize counters
     tp = fp = fn = tn = 0
@@ -99,8 +118,6 @@ def validate_policy(
                     user_id=user_id,
                     resource_id=resource_id,
                     permission=permission,
-                    abac_decision=True,
-                    rbac_decision=False,
                 )
             )
         elif not policy_permits and rbac_authorised:
@@ -110,8 +127,6 @@ def validate_policy(
                     user_id=user_id,
                     resource_id=resource_id,
                     permission=permission,
-                    abac_decision=False,
-                    rbac_decision=True,
                 )
             )
         else:  # not policy_permits and not rbac_authorised

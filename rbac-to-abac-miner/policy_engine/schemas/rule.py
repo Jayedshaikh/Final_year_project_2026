@@ -49,6 +49,15 @@ def evaluate_condition(cond: Condition, user_attrs: dict, resource_attrs: dict) 
             return False
         
         expected_value = cond.value
+
+        # Normalise strings to lowercase for case-insensitive comparison
+        # (attributes are lowercased during training; rules may have mixed case)
+        if isinstance(actual_value, str):
+            actual_value = actual_value.lower()
+        if isinstance(expected_value, str):
+            expected_value = expected_value.lower()
+        if isinstance(expected_value, list):
+            expected_value = [v.lower() if isinstance(v, str) else v for v in expected_value]
         
         # Evaluate based on operator
         if cond.operator == Operator.EQ:
