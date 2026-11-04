@@ -1,0 +1,33 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Implement core rule evaluation and foundational schemas: rule evaluation (evaluate_condition, rule_matches), RBAC authorisation verification (verify_rbac_authorisation, build_access_matrix), support/confidence metrics computation, and OptimisationConfig model. This feature establishes the fundamental primitives that all other features depend on.",
+  "status": "completed",
+  "steps": [
+    "Create policy_engine/schemas/config.py with OptimisationConfig Pydantic model containing: min_support (float, ge=0, le=1), min_confidence (float, ge=0, le=1), confidence_tolerance (float, ge=0, le=1, default=0.0), wsc_weights (dict with w_rule, w_cond, w_val, defaults 1.0, 1.0, 0.5), random_seed (int, default=42). Import from pydantic BaseModel and Field.",
+    "Create policy_engine/schemas/rule.py. Import ABACRule, Condition, Operator from shared.schemas.contracts. Implement evaluate_condition(cond: Condition, user_attrs: dict, resource_attrs: dict) -> bool that: (1) extracts attribute name without prefix, (2) looks up value in user_attrs if prefix is 'user.' else resource_attrs, (3) returns False (deny) if attribute missing, value is None, or types incompatible, (4) handles operators ==, !=, in, not_in, <=, <, >, >= per Operator enum, (5) returns False for unknown operators, (6) wraps all logic in try-except returning False on any exception. Follow the fail-safe pattern from POLICY_ENGINE.md section 2.",
+    "In policy_engine/schemas/rule.py, implement rule_matches(rule: ABACRule, user_attrs: dict, resource_attrs: dict, action: str) -> bool that: (1) returns False if action != rule.action, (2) returns False if rule.conditions is empty (malformed), (3) evaluates all conditions via evaluate_condition, (4) returns True only if ALL conditions pass, (5) wraps in try-except returning False on exception. Add docstrings stating fail-safe behavior.",
+    "Create policy_engine/schemas/rbac.py. Import pandas as pd. Implement verify_rbac_authorisation(ua: pd.DataFrame, pa: pd.DataFrame, user_id: str, resource_id: str, permission: str) -> bool. Logic: tuple (user_id, resource_id, permission) is authorised iff exists role r with (user_id, r) in ua AND (r, permission) in pa where pa row's resource_id (if present and not empty) matches or is absent/empty (grants all resources). Expected ua columns: user_id, role_id. Expected pa columns: role_id, permission_id (or permission), optional resource_id. Return False if dataframes lack required columns or user_id not found. Add comprehensive docstring matching DATA_PIPELINE.md section 2.",
+    "In policy_engine/schemas/rbac.py, implement build_access_matrix(users: pd.DataFrame, resources: pd.DataFrame, ua: pd.DataFrame, pa: pd.DataFrame, permissions: list[str]) -> pd.DataFrame. Return DataFrame with columns user_id, resource_id, permission, authorised (0/1). Iterate over cartesian product of users['user_id'] x resources['resource_id'] x permissions, call verify_rbac_authorisation for each tuple, set authorised column. Sort by (user_id, resource_id, permission) for deterministic output. Must produce identical output to Jayed's data_pipeline.build_auth_matrix per DATA_PIPELINE.md section 2.",
+    "Create policy_engine/schemas/metrics.py. Import pandas as pd, ABACRule from shared.schemas.contracts, and rule_matches from .rule. Implement support(rule: ABACRule, samples: pd.DataFrame) -> float. Expected samples columns: user_id, resource_id, permission, user.*, resource.*, authorised. Logic: matched = count rows where rule_matches(rule, row_user_attrs, row_resource_attrs, row['permission']) is True. Return matched / len(samples). Return 0.0 if len(samples) == 0 (avoid division by zero).",
+    "In policy_engine/schemas/metrics.py, implement confidence(rule: ABACRule, samples: pd.DataFrame) -> float. Logic: matched_rows = rows where rule_matches returns True; positives = subset of matched_rows where authorised == 1. Return len(positives) / len(matched_rows). Return 0.0 if len(matched_rows) == 0. Per POLICY_ENGINE.md section 3, support and confidence on sampled data are estimates; final metrics recomputed on full matrix.",
+    "Update policy_engine/schemas/__init__.py to export: OptimisationConfig, evaluate_condition, rule_matches, verify_rbac_authorisation, build_access_matrix, support, confidence.",
+    "Add unit tests in policy_engine/tests/test_rule_evaluation.py: test evaluate_condition for each operator (==, !=, in, not_in, <=, <, >, >=), missing attribute returns False, type mismatch returns False, unknown operator returns False, exception in comparison returns False. Test rule_matches: all conditions pass returns True, one fails returns False, wrong action returns False, empty conditions returns False.",
+    "Add unit tests in policy_engine/tests/test_rbac.py: hand-computed 3 user x 2 role x 3 resource x 2 permission example. Verify verify_rbac_authorisation matches hand calculation. Verify build_access_matrix produces the expected 18 tuples (3*3*2) with correct authorised flags. Test resource-scoped PA row grants only that resource; blank resource_id grants all.",
+    "Add unit tests in policy_engine/tests/test_metrics.py: hand-compute support and confidence on a 10-row sample with 2 rules. Verify functions return exact expected values. Test zero-row sample returns 0.0. Test rule matching nothing returns support=0.0, confidence=0.0."
+  ],
+  "acceptance_criteria": [
+    "All rule evaluation functions (evaluate_condition, rule_matches) return False on missing attributes, type errors, unknown operators, and exceptions - never raise through the public API",
+    "RBAC authorisation verification (verify_rbac_authorisation, build_access_matrix) produces output matching hand-computed examples in tests",
+    "Support and confidence metrics correctly handle zero denominators and return 0.0",
+    "OptimisationConfig model validates min_support, min_confidence in [0, 1] and provides default wsc_weights",
+    "All tests in policy_engine/tests/test_rule_evaluation.py, test_rbac.py, test_metrics.py pass"
+  ],
+  "verification": [
+    "python -m pytest policy_engine/tests/test_rule_evaluation.py -v",
+    "python -m pytest policy_engine/tests/test_rbac.py -v",
+    "python -m pytest policy_engine/tests/test_metrics.py -v"
+  ],
+  "blocked_reason": null,
+  "findings": "All acceptance criteria met. All functions implement fail-safe behavior (deny on error). RBAC verification produces expected output matching hand-computed examples. Support and confidence handle zero denominators correctly. OptimisationConfig validates constraints. All 48 tests pass (29 rule evaluation, 10 RBAC, 9 metrics)."
+}
