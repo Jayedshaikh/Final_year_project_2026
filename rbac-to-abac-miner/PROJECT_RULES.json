@@ -1,0 +1,509 @@
+{
+  "metadata": {
+    "rules_version": "1.0.0",
+    "contract_version": "1.0.0",
+    "project_title": "Supervised Learning Based Approach for Mining ABAC Rules from Existing RBAC Enabled Systems",
+    "repository_name": "rbac-to-abac-miner",
+    "project_type": "Final year academic prototype",
+    "created": "2026-11-03",
+    "authoritative_source": "Project report PDF (research methodology, Appendix B algorithm, evaluation metrics, scope)",
+    "note": "This file is a governance specification read by humans and AI coding agents. It cannot enforce itself. Enforcement requires GitHub branch protection, CODEOWNERS, pull-request review and CI (see git_workflow.enforcement)."
+  },
+  "objective": {
+    "summary": "Build a working prototype that mines human-readable ABAC rules from an existing RBAC system using supervised machine learning.",
+    "pipeline_steps": [
+      "Import RBAC data and user/resource attributes",
+      "Construct the RBAC authorisation relation Auth from UA and PA",
+      "Generate positive samples S+ and sampled negative samples S-",
+      "Preprocess and encode attributes",
+      "Train Decision Tree, Random Forest and Gradient Boosting; cross-validate and compare",
+      "Select the interpretable Decision Tree for rule extraction",
+      "Extract permit paths as candidate ABAC rules with support and confidence",
+      "Merge, generalise and prune rules",
+      "Validate the policy against the full RBAC access matrix",
+      "Administrator reviews, approves, rejects or edits rules",
+      "Export approved rules as JSON and XACML-style policy"
+    ],
+    "out_of_scope": [
+      "Integration with a live policy decision point or production IAM",
+      "Environmental or contextual attributes (time, location, device)",
+      "Deny-rule mining as a mandatory feature",
+      "GPU-based training"
+    ]
+  },
+  "technology_stack": {
+    "approved": {
+      "language_backend": "Python 3.9+",
+      "backend_framework": "FastAPI",
+      "schemas": "Pydantic v2",
+      "data": ["Pandas", "NumPy"],
+      "ml": ["scikit-learn", "XGBoost", "imbalanced-learn", "SHAP"],
+      "plotting": ["Matplotlib", "Seaborn", "Graphviz"],
+      "model_storage": "Joblib",
+      "testing_backend": "Pytest",
+      "frontend": ["React.js", "Vite", "Tailwind CSS", "Recharts"],
+      "testing_frontend": "Vitest (optional) or manual test checklist",
+      "storage": ["CSV (datasets)", "JSON (policies, contracts)", "SQLite (optional, prototype metadata only)"],
+      "vcs": ["Git", "GitHub"]
+    },
+    "prohibited_without_approval": ["Docker", "Kubernetes", "Redis", "cloud services", "GPU libraries", "deep learning frameworks", "any new runtime dependency"]
+  },
+  "permission_levels": {
+    "OWNER": "Responsible for implementing and maintaining the module. May change it through the normal pull-request flow.",
+    "CONTRIBUTOR": "May contribute only through an approved change request and a pull request reviewed by the OWNER.",
+    "READ_ONLY": "May inspect, import and call the module but must not change it.",
+    "RESTRICTED": "Any change needs explicit approval from the module OWNER and the project lead, recorded in the pull request."
+  },
+  "team": {
+    "project_lead": "jayed",
+    "integration_owner": "jayed",
+    "decision_model": "Technical integration is led by Jayed. Project-level decisions are shared among all four members. Jayed is not responsible for fixing other members' code.",
+    "members": {
+      "jayed": {
+        "full_name": "Jayed Altaf Shaikh",
+        "designation": "Machine Learning Engineer and Backend Lead",
+        "hardware": "high",
+        "branch": "feature/jayed-backend",
+        "extra_branches": ["feature/jayed-ml-engine"],
+        "guide": "docs/team_guides/JAYED_GUIDE.md",
+        "agent_file": "JAYED.md"
+      },
+      "naeem": {
+        "full_name": "Naeem Julfekar Shaikh",
+        "designation": "Frontend Engineer",
+        "hardware": "medium",
+        "branch": "feature/naeem-frontend",
+        "extra_branches": [],
+        "guide": "docs/team_guides/NAEEM_GUIDE.md",
+        "agent_file": "NAEEM.md"
+      },
+      "shweta": {
+        "full_name": "Shweta Suresh Kidile",
+        "designation": "Data Engineering and Quality Assurance Engineer",
+        "hardware": "low",
+        "branch": "feature/shweta-data-qa",
+        "extra_branches": [],
+        "guide": "docs/team_guides/SHWETA_GUIDE.md",
+        "agent_file": "SHWETA.md"
+      },
+      "granthali": {
+        "full_name": "Granthali Sandesh Mahajan",
+        "designation": "Security Logic and ABAC Policy Engineer",
+        "hardware": "low",
+        "branch": "feature/granthali-policy-engine",
+        "extra_branches": [],
+        "guide": "docs/team_guides/GRANTHALI_GUIDE.md",
+        "agent_file": "GRANTHALI.md"
+      }
+    }
+  },
+  "modules": {
+    "backend_app": {
+      "path": "backend/app/",
+      "description": "FastAPI application entry point, routers wiring, configuration",
+      "owner": "jayed",
+      "contributors": [],
+      "read_only": ["naeem", "shweta", "granthali"],
+      "restricted": []
+    },
+    "backend_api": {
+      "path": "backend/api/",
+      "description": "REST route handlers. Response structures follow shared/schemas/contracts.py",
+      "owner": "jayed",
+      "contributors": [],
+      "read_only": ["naeem", "shweta", "granthali"],
+      "restricted": []
+    },
+    "backend_services": {
+      "path": "backend/services/",
+      "description": "Orchestration layer connecting data pipeline, ML engine and policy engine",
+      "owner": "jayed",
+      "contributors": [],
+      "read_only": ["naeem", "shweta", "granthali"],
+      "restricted": []
+    },
+    "backend_data_pipeline": {
+      "path": "backend/data_pipeline/",
+      "description": "RBAC loading, preprocessing, authorisation matrix, positive/negative sample generation, encoding",
+      "owner": "jayed",
+      "contributors": [],
+      "read_only": ["naeem", "shweta", "granthali"],
+      "restricted": []
+    },
+    "backend_ml_engine": {
+      "path": "backend/ml_engine/",
+      "description": "Model training, cross-validation, tuning, evaluation, decision tree permit-path extraction",
+      "owner": "jayed",
+      "contributors": [],
+      "read_only": ["naeem", "shweta", "granthali"],
+      "restricted": []
+    },
+    "backend_models": {
+      "path": "backend/models/",
+      "description": "Serialised trained models (not committed to git)",
+      "owner": "jayed",
+      "contributors": [],
+      "read_only": ["naeem", "shweta", "granthali"],
+      "restricted": []
+    },
+    "backend_schemas": {
+      "path": "backend/schemas/",
+      "description": "Backend-internal helpers that re-export or wrap shared contracts. Must not redefine contract models.",
+      "owner": "jayed",
+      "contributors": [],
+      "read_only": ["naeem", "shweta", "granthali"],
+      "restricted": []
+    },
+    "backend_utils": {
+      "path": "backend/utils/",
+      "description": "Backend utilities (logging, seeds, timing, config loading)",
+      "owner": "jayed",
+      "contributors": [],
+      "read_only": ["naeem", "shweta", "granthali"],
+      "restricted": []
+    },
+    "backend_tests": {
+      "path": "backend/tests/",
+      "description": "Unit tests for backend modules",
+      "owner": "jayed",
+      "contributors": [],
+      "read_only": ["naeem", "shweta", "granthali"],
+      "restricted": []
+    },
+    "frontend": {
+      "path": "frontend/",
+      "description": "React + Vite + Tailwind administrator interface",
+      "owner": "naeem",
+      "contributors": [],
+      "read_only": ["jayed", "shweta", "granthali"],
+      "restricted": []
+    },
+    "data_engineering": {
+      "path": "data_engineering/",
+      "description": "Sample datasets, data validation, test scenarios, data documentation",
+      "owner": "shweta",
+      "contributors": [],
+      "read_only": ["jayed", "naeem", "granthali"],
+      "restricted": []
+    },
+    "integration_tests": {
+      "path": "tests/",
+      "description": "Cross-module tests: data validation, dataset generation, API, integration, end-to-end",
+      "owner": "shweta",
+      "contributors": ["jayed", "granthali"],
+      "read_only": ["naeem"],
+      "restricted": []
+    },
+    "policy_engine": {
+      "path": "policy_engine/",
+      "description": "ABAC rule schema, merging, generalisation, pruning, support/confidence, validation, WSC, JSON/XACML export, RBAC authorisation verification",
+      "owner": "granthali",
+      "contributors": [],
+      "read_only": ["jayed", "naeem", "shweta"],
+      "restricted": []
+    },
+    "shared_schemas": {
+      "path": "shared/schemas/",
+      "description": "Single source of truth for data and API contracts (Pydantic)",
+      "owner": "jayed",
+      "contributors": ["naeem", "shweta", "granthali"],
+      "read_only": [],
+      "restricted": ["naeem", "shweta", "granthali"],
+      "change_rule": "Any change requires a contract change request approved by all four members and a CONTRACT_VERSION bump."
+    },
+    "shared_api_contracts": {
+      "path": "shared/api_contracts/",
+      "description": "Human-readable endpoint contracts (Markdown/JSON)",
+      "owner": "jayed",
+      "contributors": ["naeem", "shweta", "granthali"],
+      "read_only": [],
+      "restricted": ["naeem", "shweta", "granthali"],
+      "change_rule": "Same as shared_schemas."
+    },
+    "shared_sample_responses": {
+      "path": "shared/sample_responses/",
+      "description": "Mock JSON responses used by the frontend and by tests. Must validate against shared_schemas.",
+      "owner": "jayed",
+      "contributors": ["naeem", "shweta", "granthali"],
+      "read_only": [],
+      "restricted": ["naeem", "shweta", "granthali"],
+      "change_rule": "Regenerate only through a contract change; mocks must validate against contracts.py."
+    },
+    "docs": {
+      "path": "docs/",
+      "description": "Architecture, module docs, team guides, development rules",
+      "owner": "jayed",
+      "contributors": ["naeem", "shweta", "granthali"],
+      "read_only": [],
+      "restricted": [],
+      "change_rule": "Members may edit their own guide's progress sections and the module doc for their own module via pull request. Other docs need the OWNER's review."
+    },
+    "governance_root": {
+      "path": "PROJECT_RULES.json, AGENTS.md, README.md, DEVELOPMENT.md, PROJECT_ARCHITECTURE.md, ROADMAP.md, .github/, scripts/, .gitignore, requirements-base.txt, requirements-dev.txt",
+      "description": "Governance and repository configuration",
+      "owner": "jayed",
+      "contributors": [],
+      "read_only": ["naeem", "shweta", "granthali"],
+      "restricted": ["naeem", "shweta", "granthali"],
+      "change_rule": "Changes need approval from all four members because they affect everyone."
+    },
+    "config": {
+      "path": "config/",
+      "description": "Shared configuration (thresholds, seeds, paths). No secrets.",
+      "owner": "jayed",
+      "contributors": ["granthali"],
+      "read_only": ["naeem", "shweta"],
+      "restricted": [],
+      "change_rule": "Granthali may propose policy_engine-related keys through pull request reviewed by Jayed."
+    }
+  },
+  "module_dependencies": {
+    "frontend": {"depends_on": ["shared_sample_responses", "shared_api_contracts"], "runtime_depends_on": ["backend_api"]},
+    "backend_api": {"depends_on": ["backend_services", "shared_schemas"]},
+    "backend_services": {"depends_on": ["backend_data_pipeline", "backend_ml_engine", "policy_engine", "shared_schemas"]},
+    "backend_ml_engine": {"depends_on": ["backend_data_pipeline", "shared_schemas"]},
+    "backend_data_pipeline": {"depends_on": ["shared_schemas"]},
+    "policy_engine": {"depends_on": ["shared_schemas"], "must_not_depend_on": ["backend_ml_engine", "backend_api", "frontend"]},
+    "data_engineering": {"depends_on": ["shared_schemas"], "must_not_depend_on": ["backend_ml_engine"]},
+    "integration_tests": {"depends_on": ["backend_api", "policy_engine", "data_engineering", "shared_sample_responses"]}
+  },
+  "interfaces": {
+    "jayed_to_granthali": {
+      "description": "Jayed passes extracted candidate rules and the labelled samples to policy_engine through a Python function. policy_engine never imports from backend.",
+      "function": "policy_engine.optimise_policy(rules, samples, config)",
+      "inputs": ["list of ABACRule (status=candidate)", "pandas DataFrame of encoded or decoded samples with a label column", "OptimisationConfig"],
+      "outputs": ["list of ABACRule (status=optimised)", "OptimisationSummary"]
+    },
+    "jayed_to_granthali_validation": {
+      "description": "Final validation against the full access matrix",
+      "function": "policy_engine.validate_policy(rules, access_matrix_df, user_attrs_df, resource_attrs_df)",
+      "outputs": ["PolicyMetrics", "over-privileged examples", "under-privileged examples"]
+    },
+    "jayed_to_granthali_export": {
+      "function": "policy_engine.export_policy(rules, fmt, policy_id)",
+      "outputs": ["string (JSON or XACML-style XML)"],
+      "constraint": "Only rules with status=approved may be exported."
+    },
+    "shweta_to_all": {
+      "description": "Shweta provides sample datasets and validation functions. Jayed's loader may call data_engineering.data_validation as a library; data_engineering must remain importable without the backend."
+    },
+    "frontend_to_backend": {
+      "description": "REST over JSON. Base URL from environment variable VITE_API_BASE_URL. Mock mode via VITE_USE_MOCKS=true loading shared/sample_responses."
+    }
+  },
+  "naming_conventions": {
+    "python_files": "snake_case.py",
+    "python_functions_variables": "snake_case",
+    "python_classes": "PascalCase",
+    "python_constants": "UPPER_SNAKE_CASE",
+    "react_components": "PascalCase.jsx",
+    "react_hooks": "useCamelCase.js",
+    "json_fields": "snake_case",
+    "api_paths": "/api/v1/<kebab-case-or-snake_case-nouns>",
+    "branches": "feature/<member>-<topic>, fix/<member>-<topic>",
+    "ids": "dataset_id: ds_NNN, run_id: run_NNN, policy_id: pol_NNN, rule_id: RNNN, model_id: m_<type>_NNN"
+  },
+  "coding_standards": {
+    "python": {
+      "style": "PEP 8, line length 100",
+      "typing": "Type hints on all public functions",
+      "docstrings": "Every public function and class has a docstring stating inputs, outputs and failure behaviour",
+      "randomness": "Every stochastic step accepts random_seed; default 42; never rely on global random state",
+      "errors": "Raise explicit exceptions with clear messages; never swallow exceptions silently",
+      "formatting_tools": ["ruff or flake8 (optional)", "black (optional)"]
+    },
+    "javascript": {
+      "style": "ESLint defaults for React; functional components and hooks only",
+      "api_access": "All HTTP calls go through frontend/src/services/ only; components never call fetch directly"
+    },
+    "general": [
+      "Small functions with one responsibility",
+      "No dead code or commented-out blocks in pull requests",
+      "No hardcoded file system paths; use config/",
+      "No duplicate implementation of existing functionality"
+    ]
+  },
+  "api_standards": {
+    "base_path": "/api/v1",
+    "format": "JSON request and response (multipart/form-data for uploads)",
+    "success_envelope": "Every success body has status: ok",
+    "error_envelope": "ErrorResponse from shared/schemas/contracts.py with a non-2xx HTTP status",
+    "status_codes": {"200": "success", "400": "validation failure", "404": "unknown dataset, run or policy", "409": "invalid state transition (for example export before approval)", "422": "schema validation error", "500": "unexpected server error (never returns a permit)"},
+    "versioning": "Breaking changes require a new path version and approval from all members",
+    "endpoints": [
+      {"method": "POST", "path": "/api/v1/datasets/upload", "request": "DatasetUploadRequest + files", "response": "DatasetValidationResponse"},
+      {"method": "GET", "path": "/api/v1/datasets/{dataset_id}/authorisation", "response": "RBACAuthorisationResponse"},
+      {"method": "POST", "path": "/api/v1/training/run", "request": "TrainingConfigRequest", "response": "TrainingResponse"},
+      {"method": "GET", "path": "/api/v1/training/{run_id}/comparison", "response": "ModelComparisonResponse"},
+      {"method": "GET", "path": "/api/v1/training/{run_id}/rules", "response": "ExtractedRulesResponse"},
+      {"method": "POST", "path": "/api/v1/policies/optimise/{run_id}", "response": "OptimisedPolicyResponse"},
+      {"method": "GET", "path": "/api/v1/policies/{policy_id}/validation", "response": "PolicyValidationResponse"},
+      {"method": "POST", "path": "/api/v1/policies/{policy_id}/review", "request": "ApprovalRequest", "response": "ApprovalResponse"},
+      {"method": "POST", "path": "/api/v1/policies/{policy_id}/export", "request": "ExportRequest", "response": "ExportResponse"}
+    ]
+  },
+  "data_standards": {
+    "input_files": ["users", "roles", "permissions", "user_roles", "role_permissions", "resources"],
+    "encoding": "UTF-8, header row required, snake_case column names",
+    "primary_keys": {"users": "user_id", "roles": "role_id", "permissions": "permission_id", "resources": "resource_id"},
+    "relation_files": {"user_roles": ["user_id", "role_id"], "role_permissions": ["role_id", "permission_id"]},
+    "attribute_prefixes_in_rules": ["user.", "resource."],
+    "missing_values": "Reported by validation as warnings; imputation strategy is configured in config/, never silent",
+    "synthetic_only": "Only synthetic or anonymised data may be committed",
+    "reproducibility": "Datasets generated by script with a recorded seed",
+    "authorisation_tuple": "(user_id, resource_id, permission) is authorised iff some role r exists with (user_id, r) in UA and (r, permission) in PA",
+    "implementation_decision_note": "How a permission relates to a resource (for example permissions carrying an action and optional resource scope) is an implementation decision to be reconciled with the report's data model in Milestone 2."
+  },
+  "json_schemas": {
+    "source_of_truth": "shared/schemas/contracts.py",
+    "samples": "shared/sample_responses/",
+    "rule": "ABACRule",
+    "policy_export_default_decision": "deny"
+  },
+  "testing_requirements": {
+    "framework": "pytest",
+    "minimum": [
+      "Every public function has at least one passing unit test",
+      "Every new module has a README and tests directory or test file",
+      "Every API endpoint has a contract test comparing the response with the Pydantic model",
+      "Every sample response validates against contracts.py",
+      "Edge cases: empty dataset, missing attributes, duplicate records, dangling references, single-class data"
+    ],
+    "reproducibility": "Tests use fixed seeds and the small datasets in data_engineering/sample_datasets/",
+    "ml_tests": "Use tiny datasets so tests run in seconds on low-end laptops",
+    "no_fabricated_results": "Expected metric values in tests must come from independent calculation, never copied from model output"
+  },
+  "git_workflow": {
+    "protected_branches": ["main", "develop"],
+    "flow": "feature branch -> pull request into develop -> review -> merge; develop -> main only for milestone releases",
+    "direct_commits_to_main": "Forbidden",
+    "direct_commits_to_develop": "Forbidden",
+    "branches": ["main", "develop", "feature/jayed-backend", "feature/jayed-ml-engine", "feature/naeem-frontend", "feature/shweta-data-qa", "feature/granthali-policy-engine"],
+    "commit_convention": "type(scope): summary, for example feat(policy_engine): add rule merger",
+    "commit_types": ["feat", "fix", "docs", "test", "refactor", "chore"],
+    "pull_request_requirements": [
+      "Touches only modules the author OWNS or is an approved CONTRIBUTOR for",
+      "Description lists changed modules and linked milestone",
+      "Tests added and passing",
+      "Docs updated if an interface changed",
+      "At least one reviewer other than the author",
+      "Module OWNER approval when the PR touches a module the author does not own"
+    ],
+    "merge_approval": "Integration owner (Jayed) merges into develop after reviews; Jayed's own PRs are reviewed and approved by another member",
+    "enforcement": [
+      "GitHub branch protection on main and develop (require PR, require 1 approval, require status checks)",
+      "CODEOWNERS file maps paths to owners",
+      "CI workflow .github/workflows/ci.yml runs governance validation and tests",
+      "scripts/validate_governance.py checks JSON validity, ownership uniqueness and sample contracts"
+    ]
+  },
+  "integration_rules": [
+    "R1: Every member works only on assigned modules unless approved",
+    "R2: Nobody directly modifies another member's module",
+    "R3: Every module has a README",
+    "R4: Shared data structures follow approved schemas",
+    "R5: Frontend uses mock JSON until APIs are ready",
+    "R6: Backend API response structures never change without approval",
+    "R7: Every module includes unit tests",
+    "R8: All code is committed to GitHub",
+    "R9: No direct commits to main",
+    "R10: Integration changes require testing",
+    "R11: No confidential real employee data in the repository",
+    "R12: A module is not complete until its integration contract and tests pass"
+  ],
+  "hard_rules": [
+    {"id": "RULE_01", "text": "Every module has one clearly identified owner."},
+    {"id": "RULE_02", "text": "No member independently modifies another member's owned module."},
+    {"id": "RULE_03", "text": "All shared schemas must be approved before implementation."},
+    {"id": "RULE_04", "text": "Every module must provide a README."},
+    {"id": "RULE_05", "text": "All new functionality requires tests."},
+    {"id": "RULE_06", "text": "No direct commits to main."},
+    {"id": "RULE_07", "text": "All changes must pass review before merging."},
+    {"id": "RULE_08", "text": "No hardcoded production data."},
+    {"id": "RULE_09", "text": "No API response structure changes without approval."},
+    {"id": "RULE_10", "text": "No duplicate implementation of existing functionality."},
+    {"id": "RULE_11", "text": "No unnecessary architectural changes."},
+    {"id": "RULE_12", "text": "No fabricated ML evaluation results."},
+    {"id": "RULE_13", "text": "No model training on the test set."},
+    {"id": "RULE_14", "text": "No policy approval happens automatically."},
+    {"id": "RULE_15", "text": "No unapproved ABAC rule is exported as an approved policy."},
+    {"id": "RULE_16", "text": "Never use a default ALLOW decision when policy evaluation fails. Fail safely (deny)."},
+    {"id": "RULE_17", "text": "Never expose confidential datasets or credentials."},
+    {"id": "RULE_18", "text": "All integration must be reproducible."}
+  ],
+  "algorithm_constraints": [
+    "Follow Appendix B of the project report; the report is authoritative",
+    "The Decision Tree is the rule extraction model",
+    "Random Forest and Gradient Boosting are accuracy references only; never extract rules from them as a replacement",
+    "Never evaluate the final policy only on the sampled negative dataset; report validation on the full access matrix",
+    "Keep the test set separate from training and hyperparameter selection",
+    "Avoid data leakage: fit encoders and imputers on training data only",
+    "Use reproducible random seeds",
+    "Handle empty datasets and invalid attributes safely",
+    "Do not claim planned research results as achieved"
+  ],
+  "security_requirements": [
+    "Policy evaluation failures resolve to deny",
+    "Exported policy declares default_decision deny",
+    "Uploaded files are size-limited and parsed as data only; never executed",
+    "File names are sanitised; uploads stored under a generated dataset_id",
+    "No credentials, tokens or .env files committed",
+    "CORS limited to the configured frontend origin",
+    "Administrator approval is an explicit API call per rule decision; no auto-approve flag exists"
+  ],
+  "definition_of_done": [
+    "Implementation exists",
+    "Required functions work",
+    "Input validation works",
+    "Output follows approved schemas",
+    "Tests pass",
+    "Documentation exists",
+    "Dependencies are documented",
+    "Integration requirements are satisfied",
+    "No unrelated functionality is broken"
+  ],
+  "prohibited_practices": [
+    "Committing to main or develop directly",
+    "Editing another member's OWNED module without an approved change",
+    "Changing shared contracts silently",
+    "Hardcoding sample data inside application logic",
+    "Fabricating or hand-editing metric values",
+    "Training or tuning on the test split",
+    "Extracting final rules from Random Forest or Gradient Boosting",
+    "Auto-approving rules",
+    "Exporting unapproved rules",
+    "Defaulting to ALLOW on error",
+    "Adding dependencies without approval",
+    "Committing trained model binaries, large datasets or real employee data",
+    "Claiming a feature works without running it",
+    "Rewriting history on shared branches"
+  ],
+  "hardware_restrictions": {
+    "gpu": "No GPU dependency anywhere",
+    "heavy_training": "Runs only on Jayed's machine",
+    "low_spec_members": "Shweta and Granthali work with small CSV/JSON files and lightweight Python; no model training on their machines",
+    "frontend": "Naeem develops against mock JSON and does not require the backend or trained models",
+    "datasets": "Small reproducible samples are committed; larger datasets are regenerated by script, not downloaded by everyone",
+    "model_sharing": "Trained models are not committed; Jayed shares result JSON that conforms to contracts"
+  },
+  "conflict_resolution": {
+    "ownership_conflict": "The module OWNER decides within 24 hours; if unresolved the four members vote and Jayed records the decision in docs/development_rules/DECISIONS.md",
+    "contract_conflict": "Freeze work on the affected endpoint; propose a change request; all four members approve; bump CONTRACT_VERSION",
+    "requirement_conflict": "The project report is authoritative. Where the report is silent, record an implementation decision in docs/development_rules/DECISIONS.md",
+    "ai_agent_conflict": "Agents stop and report the conflict instead of choosing silently"
+  },
+  "milestones": [
+    {"id": 1, "name": "Repository and project configuration", "owner": "jayed"},
+    {"id": 2, "name": "Sample datasets and data contracts", "owner": "shweta"},
+    {"id": 3, "name": "Data loading and RBAC authorisation matrix", "owner": "jayed"},
+    {"id": 4, "name": "Positive and negative dataset generation", "owner": "jayed"},
+    {"id": 5, "name": "Machine learning training", "owner": "jayed"},
+    {"id": 6, "name": "Decision Tree rule extraction", "owner": "jayed"},
+    {"id": 7, "name": "Rule optimisation", "owner": "granthali"},
+    {"id": 8, "name": "Policy validation and metrics", "owner": "granthali"},
+    {"id": 9, "name": "Frontend development", "owner": "naeem"},
+    {"id": 10, "name": "Backend integration", "owner": "jayed"},
+    {"id": 11, "name": "Administrator review and JSON export", "owner": "granthali"},
+    {"id": 12, "name": "Complete integration testing and demonstration", "owner": "shweta"}
+  ]
+}

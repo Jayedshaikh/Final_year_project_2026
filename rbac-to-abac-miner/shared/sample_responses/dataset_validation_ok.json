@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "dataset_id": "ds_001",
+  "summary": {
+    "n_users": 12,
+    "n_roles": 4,
+    "n_permissions": 3,
+    "n_resources": 8,
+    "n_user_roles": 14,
+    "n_role_permissions": 9,
+    "user_attributes": [
+      "department",
+      "seniority",
+      "clearance"
+    ],
+    "resource_attributes": [
+      "department",
+      "sensitivity",
+      "type"
+    ]
+  },
+  "issues": [
+    {
+      "severity": "warning",
+      "code": "MISSING_VALUE",
+      "file": "users.csv",
+      "row": 7,
+      "column": "clearance",
+      "message": "Missing value imputed with 'unknown'"
+    }
+  ]
+}

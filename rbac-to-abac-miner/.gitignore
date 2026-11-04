@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Node
+node_modules/
+frontend/dist/
+
+# Trained models and large artefacts (Jayed's machine only; share via release/drive, not git)
+backend/models/*.joblib
+backend/models/*.pkl
+backend/models/*.json
+!backend/models/.gitkeep
+
+# Data: never commit real employee data (Rule R11)
+data_real/
+*.private.csv
+*.confidential.*
+data_engineering/sample_datasets/large/
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Runtime outputs
+exports/
+*.log
+*.sqlite
+*.db
+
+# Backend runtime state and uploads (D-007)
+backend/runs/
+backend/uploads/

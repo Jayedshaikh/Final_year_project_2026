@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "policy_id": "pol_001",
+  "format": "json",
+  "n_rules_exported": 1,
+  "default_decision": "deny",
+  "content": "{\"policy_id\": \"pol_001\", \"default_decision\": \"deny\", \"rules\": [{\"rule_id\": \"R001\", \"effect\": \"permit\", \"action\": \"read\", \"conditions\": [{\"attribute\": \"user.department\", \"operator\": \"==\", \"value\": \"Finance\"}, {\"attribute\": \"resource.sensitivity\", \"operator\": \"in\", \"value\": [\"low\", \"medium\"]}], \"support\": 0.12, \"confidence\": 0.97, \"n_covered_positive\": 30, \"n_covered_negative\": 1, \"status\": \"candidate\", \"source\": \"tree_path\", \"derived_from\": []}]}",
+  "generated_at": "2026-11-03T12:00:00Z"
+}

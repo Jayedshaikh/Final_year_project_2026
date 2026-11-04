@@ -1,0 +1,6 @@
+# Data engineering and QA (Shweta). Lightweight: no model training libraries.
+pydantic>=2.0
+pandas>=1.5
+numpy>=1.23
+pytest>=7.0
+httpx>=0.26

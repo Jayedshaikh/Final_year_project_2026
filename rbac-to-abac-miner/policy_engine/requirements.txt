@@ -1,0 +1,5 @@
+# Policy engine (Granthali). Lightweight: no scikit-learn, no FastAPI, no GPU.
+pydantic>=2.0
+pandas>=1.5
+numpy>=1.23
+pytest>=7.0

@@ -1,0 +1,5 @@
+# Optional tooling for everyone (formatting and linting). Not required to run any module.
+-r requirements-base.txt
+black>=24.0
+ruff>=0.4
+pytest-cov>=4.0

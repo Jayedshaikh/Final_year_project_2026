@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [develop, main]
+  push:
+    branches: [develop]
+
+jobs:
+  governance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install "pydantic>=2.0" pytest pandas numpy
+      - name: Validate governance files and contracts
+        run: python scripts/validate_governance.py
+      - name: Run tests that exist
+        run: |
+          python -m pytest -q policy_engine/tests data_engineering tests backend/tests shared --maxfail=5 || [ $? -eq 5 ]
+
+  frontend:
+    runs-on: ubuntu-latest
+    if: hashFiles('frontend/package.json') != ''
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: cd frontend && npm ci && npm run build

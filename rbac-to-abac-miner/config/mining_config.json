@@ -1,0 +1,52 @@
+{
+  "config_version": "1.0.0",
+  "status": "defaults pending confirmation against the project report (see docs/development_rules/DECISIONS.md D-002, D-003, D-004, D-014)",
+  "random_seed": 42,
+  "test_size": 0.2,
+  "cv_folds": 5,
+  "negative_sampling": {
+    "strategy": "random",
+    "ratio": 1.0
+  },
+  "f1_target": 0.95,
+  "min_support": 0.01,
+  "min_confidence": 0.9,
+  "confidence_tolerance": 0.0,
+  "preprocessing": {
+    "missing_value_strategy": {
+      "categorical": "category_unknown",
+      "numeric": "median"
+    },
+    "normalise_categorical_case": true
+  },
+  "decision_tree_grid": {
+    "max_depth": [3, 4, 5, 6, 8, 10, null],
+    "min_samples_leaf": [1, 2, 5, 10],
+    "criterion": ["gini", "entropy"]
+  },
+  "random_forest_defaults": {
+    "n_estimators": 100
+  },
+  "gradient_boosting_defaults": {
+    "n_estimators": 100,
+    "learning_rate": 0.1
+  },
+  "wsc_weights": {
+    "w_rule": 1.0,
+    "w_cond": 1.0,
+    "w_val": 0.5
+  },
+  "mining_objective": {
+    "w_f1": 1.0,
+    "w_opr": 1.0,
+    "w_upr": 0.5,
+    "w_wsc": 0.01
+  },
+  "validation": {
+    "max_examples": 20
+  },
+  "upload": {
+    "max_file_mb": 10,
+    "allowed_extensions": [".csv", ".json"]
+  }
+}

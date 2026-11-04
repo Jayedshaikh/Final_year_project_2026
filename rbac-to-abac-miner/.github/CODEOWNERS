@@ -1,0 +1,17 @@
+# Replace the placeholders with the real GitHub usernames before enabling "Require review from Code Owners".
+# @jayed-gh  @naeem-gh  @shweta-gh  @granthali-gh
+
+/backend/                    @jayed-gh
+/frontend/                   @naeem-gh
+/data_engineering/           @shweta-gh
+/tests/                      @shweta-gh
+/policy_engine/              @granthali-gh
+/shared/                     @jayed-gh @naeem-gh @shweta-gh @granthali-gh
+/PROJECT_RULES.json          @jayed-gh @naeem-gh @shweta-gh @granthali-gh
+/AGENTS.md                   @jayed-gh @naeem-gh @shweta-gh @granthali-gh
+/.github/                    @jayed-gh @naeem-gh @shweta-gh @granthali-gh
+/config/                     @jayed-gh
+/docs/                       @jayed-gh
+/scripts/                    @jayed-gh @naeem-gh @shweta-gh @granthali-gh
+/requirements-base.txt       @jayed-gh
+/requirements-dev.txt        @jayed-gh
