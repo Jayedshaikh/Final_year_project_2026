@@ -1,0 +1,58 @@
+{
+  "status": "ok",
+  "run_id": "run_001",
+  "n_rules": 2,
+  "rules": [
+    {
+      "rule_id": "R001",
+      "effect": "permit",
+      "action": "read",
+      "conditions": [
+        {
+          "attribute": "user.department",
+          "operator": "==",
+          "value": "Finance"
+        },
+        {
+          "attribute": "resource.sensitivity",
+          "operator": "in",
+          "value": [
+            "low",
+            "medium"
+          ]
+        }
+      ],
+      "support": 0.12,
+      "confidence": 0.97,
+      "n_covered_positive": 30,
+      "n_covered_negative": 1,
+      "status": "candidate",
+      "source": "tree_path",
+      "derived_from": []
+    },
+    {
+      "rule_id": "R002",
+      "effect": "permit",
+      "action": "read",
+      "conditions": [
+        {
+          "attribute": "user.seniority",
+          "operator": ">=",
+          "value": 3
+        },
+        {
+          "attribute": "resource.type",
+          "operator": "==",
+          "value": "report"
+        }
+      ],
+      "support": 0.08,
+      "confidence": 0.93,
+      "n_covered_positive": 20,
+      "n_covered_negative": 2,
+      "status": "candidate",
+      "source": "tree_path",
+      "derived_from": []
+    }
+  ]
+}

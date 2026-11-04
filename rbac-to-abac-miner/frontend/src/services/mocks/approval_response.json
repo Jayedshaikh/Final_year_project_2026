@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "policy_id": "pol_001",
+  "n_approved": 1,
+  "n_rejected": 1,
+  "n_edited_pending_revalidation": 0,
+  "n_still_unreviewed": 0
+}

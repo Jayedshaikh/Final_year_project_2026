@@ -1,0 +1,34 @@
+{
+  "id": "FEAT-004",
+  "type": "feat",
+  "description": "Implement policy export in JSON and XACML-style formats, the optimise_policy orchestration function, and the public API in policy_engine/__init__.py. Export must raise ValueError if no approved rules exist. Public API exposes optimise_policy, validate_policy, export_policy, verify_rbac_authorisation for backend/services/ to call.",
+  "status": "pending",
+  "steps": [
+    "Create policy_engine/policy_exporter/exporter.py. Import json, datetime, ABACRule, RuleStatus, Operator from shared.schemas.contracts. Implement export_policy(rules: list[ABACRule], fmt: str, policy_id: str) -> str. Validate fmt in ['json', 'xacml'], raise ValueError otherwise. Filter rules to status=='approved' only. If no approved rules, raise ValueError('no approved rules'). If fmt=='json', call _export_json. If fmt=='xacml', call _export_xacml. Return the serialised string.",
+    "In policy_engine/policy_exporter/exporter.py, implement _export_json(approved_rules: list[ABACRule], policy_id: str) -> str. Construct dict: {'policy_id': policy_id, 'default_decision': 'deny', 'generated_at': datetime.utcnow().isoformat() + 'Z', 'rules': [rule.model_dump(mode='json') for rule in approved_rules]}. Return json.dumps(obj, indent=2, ensure_ascii=False). Ensure key order stable (Python 3.7+ dicts preserve insertion order). Per POLICY_ENGINE.md section 6, include rule_id, effect, action, conditions (list of dicts), support, confidence.",
+    "In policy_engine/policy_exporter/exporter.py, implement _export_xacml(approved_rules: list[ABACRule], policy_id: str) -> str. Build XACML-style XML: one <Policy PolicyId='{policy_id}' RuleCombiningAlgId='urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:permit-overrides'>, one <Rule RuleId='{rule.rule_id}' Effect='Permit'> per approved rule with <Target> matching the action and <Condition> ANDing attribute comparisons (user.x as SubjectAttributeDesignator, resource.x as ResourceAttributeDesignator), and a final <Rule RuleId='default-deny' Effect='Deny'>. It is 'XACML-style' (readable representation), not certified XACML 3.0 per POLICY_ENGINE.md section 6. Use xml.etree.ElementTree to build, return ET.tostring(root, encoding='unicode').",
+    "In policy_engine/policy_exporter/exporter.py, add comprehensive docstring to export_policy stating: only exports approved rules, raises ValueError if none approved, JSON has stable key order and parses, XACML-style is readable representation. Add try-except around XML building to never crash; log and raise ValueError with clear message on failure.",
+    "Update policy_engine/policy_exporter/__init__.py to export export_policy.",
+    "Create policy_engine/_optimise.py (internal module). Import OptimisationSummary from shared.schemas.contracts. Import merge_rules, generalise_rules, prune_rules from submodules. Import support, confidence from .schemas.metrics. Import OptimisationConfig from .schemas.config. Import weighted_structural_complexity from .policy_validator.wsc. Implement optimise_policy(rules: list[ABACRule], samples_df: pd.DataFrame, config: OptimisationConfig) -> tuple[list[ABACRule], OptimisationSummary].",
+    "In policy_engine/_optimise.py optimise_policy function: (1) compute wsc_before = weighted_structural_complexity(rules, config.wsc_weights). rules_before = len(rules). (2) Filter rules below min_support or min_confidence using support() and confidence() functions. (3) Call merge_rules(filtered_rules, samples_df, config) -> (rules, n_merged). (4) Call generalise_rules(rules, samples_df, config) -> (rules, n_generalised). (5) Call prune_rules(rules, samples_df, config) -> (rules, n_pruned). (6) Compute wsc_after = weighted_structural_complexity(rules, config.wsc_weights). rules_after = len(rules). (7) Build OptimisationSummary(rules_before, rules_after, n_merged, n_generalised, n_pruned_redundant=n_pruned, wsc_before, wsc_after). Return (rules, summary). Per POLICY_ENGINE.md section 4, order is filter, merge, generalise, prune.",
+    "In policy_engine/_optimise.py, add docstring documenting the optimisation pipeline order and that each step records counts for the summary. Add try-except wrapper returning original rules and zeroed summary on catastrophic failure (log error).",
+    "Update policy_engine/__init__.py to import and export: optimise_policy from ._optimise, validate_policy from .policy_validator, export_policy from .policy_exporter, verify_rbac_authorisation from .schemas.rbac. Add module-level docstring: 'Policy Engine module for ABAC rule optimisation, validation, and export. Owner: Granthali. Public API for backend/services/.' Ensure no imports from backend/ (circular dependency forbidden).",
+    "Add unit tests in policy_engine/tests/test_export.py: test JSON export produces valid JSON with default_decision='deny', stable key order, parses via json.loads, includes all approved rules. Test XACML export produces valid XML, parses via xml.etree.ElementTree.fromstring, contains Policy, Rule, Condition, final Deny rule. Test exporting with no approved rules raises ValueError('no approved rules'). Test rejected rules excluded from export. Test invalid fmt raises ValueError.",
+    "Add integration test in policy_engine/tests/test_public_api.py: import optimise_policy, validate_policy, export_policy, verify_rbac_authorisation from policy_engine. Create small end-to-end scenario: 10 candidate rules, 50-row samples_df, optimise (produces optimised rules + summary), validate (produces metrics + examples), mark some rules approved, export JSON and XACML. Verify all functions return expected types and no crashes. Verify no imports from backend/ in policy_engine/__init__.py (use sys.modules or import inspection)."
+  ],
+  "acceptance_criteria": [
+    "export_policy raises ValueError if no approved rules, silently excludes unapproved rules, exports only approved rules",
+    "JSON export: valid JSON with default_decision='deny', stable key order, parses with json.loads, includes rule_id/effect/action/conditions/support/confidence",
+    "XACML export: valid XML, parses with xml.etree, contains Policy/Rule/Target/Condition/default-deny, readable XACML-style representation",
+    "optimise_policy orchestrates filter, merge, generalise, prune in order, returns optimised rules and OptimisationSummary with correct counts and WSC before/after",
+    "Public API in policy_engine/__init__.py exports the 4 required functions, no imports from backend/ (circular dependency check)",
+    "All tests in policy_engine/tests/test_export.py and test_public_api.py pass"
+  ],
+  "verification": [
+    "python -m pytest policy_engine/tests/test_export.py -v",
+    "python -m pytest policy_engine/tests/test_public_api.py -v",
+    "python scripts/validate_governance.py"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

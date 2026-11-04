@@ -1,0 +1,18 @@
+{
+  "policy_id": "pol_001",
+  "reviewer": "admin",
+  "decisions": [
+    {
+      "rule_id": "R001",
+      "decision": "approve",
+      "edited_conditions": null,
+      "comment": null
+    },
+    {
+      "rule_id": "R002",
+      "decision": "reject",
+      "edited_conditions": null,
+      "comment": "Too broad"
+    }
+  ]
+}

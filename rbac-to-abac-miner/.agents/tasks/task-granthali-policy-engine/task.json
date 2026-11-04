@@ -1,0 +1,7 @@
+{
+  "task_id": "task-granthali-policy-engine",
+  "task_description": "Implement the policy_engine module for ABAC rule optimisation, validation, WSC computation, and JSON/XACML export with fail-safe deny-on-error semantics",
+  "status": "pending",
+  "feature_order": ["FEAT-001", "FEAT-002", "FEAT-003", "FEAT-004", "FEAT-005"],
+  "blocked_reason": null
+}

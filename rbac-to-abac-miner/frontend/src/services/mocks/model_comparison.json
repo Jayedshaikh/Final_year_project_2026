@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "run_id": "run_001",
+  "rows": [
+    {
+      "model_name": "decision_tree",
+      "precision": 0.96,
+      "recall": 0.95,
+      "f1": 0.955,
+      "training_time_seconds": 0.02,
+      "interpretable": true
+    },
+    {
+      "model_name": "random_forest",
+      "precision": 0.98,
+      "recall": 0.97,
+      "f1": 0.975,
+      "training_time_seconds": 0.4,
+      "interpretable": false
+    },
+    {
+      "model_name": "gradient_boosting",
+      "precision": 0.98,
+      "recall": 0.98,
+      "f1": 0.98,
+      "training_time_seconds": 0.7,
+      "interpretable": false
+    }
+  ],
+  "selected_for_extraction": "decision_tree",
+  "selection_reason": "Decision Tree is the only interpretable model; RF and GB serve as accuracy references."
+}
