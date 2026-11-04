@@ -1,0 +1,21 @@
+role_id,role_name
+R_SENIOR_DOCTOR,Senior Doctor
+R_JUNIOR_DOCTOR,Junior Doctor
+R_HEAD_NURSE,Head Nurse
+R_STAFF_NURSE,Staff Nurse
+R_RADIOLOGIST,Radiologist
+R_CARDIOLOGIST,Cardiologist
+R_ONCOLOGIST,Oncologist
+R_NEUROLOGIST,Neurologist
+R_SURGEON,Surgeon
+R_PHARMACIST,Pharmacist
+R_LAB_ANALYST,Lab Analyst
+R_ICU_SPECIALIST,ICU Specialist
+R_RECEPTIONIST,Receptionist
+R_ADMIN_STAFF,Admin Staff
+R_DEPT_DIRECTOR,Department Director
+R_INTERN,Medical Intern
+R_CONSULTANT,External Consultant
+R_TECH_SUPPORT,Tech Support
+R_EMERGENCY_RESP,Emergency Responder
+R_PHARMACY_TECH,Pharmacy Technician

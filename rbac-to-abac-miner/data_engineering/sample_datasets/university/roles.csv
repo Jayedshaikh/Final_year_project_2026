@@ -1,0 +1,16 @@
+role_id,role_name
+R_PROFESSOR,Full Professor
+R_ASSOCIATE_PROF,Associate Professor
+R_LECTURER,Lecturer
+R_RESEARCHER,Researcher
+R_PHD_CANDIDATE,PhD Candidate
+R_STUDENT,Student
+R_ADMIN,Administrative Staff
+R_HOD,Head of Department
+R_DEAN,Dean
+R_LAB_TECH,Lab Technician
+R_LIBRARIAN,Librarian
+R_IT_STAFF,IT Staff
+R_EXAMINER,External Examiner
+R_FINANCE_OFFICER,Finance Officer
+R_REGISTRAR,Registrar

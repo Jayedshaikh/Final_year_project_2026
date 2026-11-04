@@ -1,0 +1,19 @@
+role_id,role_name
+R_TRADER,Trader
+R_RISK_ANALYST,Risk Analyst
+R_COMPLIANCE_OFF,Compliance Officer
+R_OPS_ANALYST,Operations Analyst
+R_IT_ENGINEER,IT Engineer
+R_AUDITOR,Internal Auditor
+R_HR_BUSINESS,HR Business Partner
+R_LEGAL_COUNSEL,Legal Counsel
+R_SUPPORT_AGENT,Customer Support Agent
+R_DATA_ANALYST,Data Analyst
+R_PORTFOLIO_MGR,Portfolio Manager
+R_RISK_MANAGER,Risk Manager
+R_IT_MANAGER,IT Manager
+R_COMPLIANCE_MGR,Compliance Manager
+R_DIRECTOR,Director
+R_VP,Vice President
+R_MD,Managing Director
+R_INTERN,Intern
