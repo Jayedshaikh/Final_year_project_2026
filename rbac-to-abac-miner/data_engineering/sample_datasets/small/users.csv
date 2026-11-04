@@ -1,0 +1,13 @@
+user_id,department,seniority,clearance
+U001,Finance,12,secret
+U002,Legal,12,confidential
+U003,Engineering,11,internal
+U004,HR,12,secret
+U005,HR,8,confidential
+U006,Legal,2,internal
+U007,Finance,13,internal
+U008,Engineering,7,public
+U009,Finance,8,public
+U010,Finance,6,confidential
+U011,Engineering,3,secret
+U012,Legal,14,public

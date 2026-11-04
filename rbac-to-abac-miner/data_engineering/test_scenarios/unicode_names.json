@@ -1,0 +1,34 @@
+{
+  "_scenario": "Unicode — user names and department values with unicode characters",
+  "_expected_codes": [],
+  "_expected_severity": null,
+  "_note": "This should produce zero errors — unicode is valid UTF-8 data.",
+  "users": [
+    {"user_id": "U001", "department": "Financé", "seniority": 3, "clearance": "internal"},
+    {"user_id": "U002", "department": "Ресурсы", "seniority": 5, "clearance": "public"},
+    {"user_id": "U003", "department": "日本語", "seniority": 7, "clearance": "confidential"}
+  ],
+  "roles": [
+    {"role_id": "R01", "role_name": "Analyste"},
+    {"role_id": "R02", "role_name": "Аналитик"}
+  ],
+  "permissions": [
+    {"permission_id": "read"},
+    {"permission_id": "write"}
+  ],
+  "resources": [
+    {"resource_id": "RES001", "department": "Financé", "sensitivity": "low", "type": "report"},
+    {"resource_id": "RES002", "department": "Ресурсы", "sensitivity": "medium", "type": "document"},
+    {"resource_id": "RES003", "department": "日本語", "sensitivity": "high", "type": "database"}
+  ],
+  "user_roles": [
+    {"user_id": "U001", "role_id": "R01"},
+    {"user_id": "U002", "role_id": "R02"},
+    {"user_id": "U003", "role_id": "R01"}
+  ],
+  "role_permissions": [
+    {"role_id": "R01", "permission_id": "read", "resource_id": ""},
+    {"role_id": "R02", "permission_id": "read", "resource_id": ""},
+    {"role_id": "R02", "permission_id": "write", "resource_id": "RES002"}
+  ]
+}
