@@ -32,7 +32,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-DATASET_DIR = ROOT / "data_engineering" / "sample_datasets" / "seed_hospital"
+DATASET_DIR = ROOT / "data_engineering" / "sample_datasets" / "small"
 BASE_URL = "http://localhost:8000"
 
 
@@ -52,7 +52,7 @@ def run_demo(inline: bool = False) -> None:
     sep = "=" * 60
 
     print(sep)
-    print("RBAC-to-ABAC Miner — Demo (seed=42, dataset=seed_hospital)")
+    print("RBAC-to-ABAC Miner — Demo (seed=42, dataset=small)")
     print(sep)
 
     # ------------------------------------------------------------------ #
@@ -104,8 +104,8 @@ def run_demo(inline: bool = False) -> None:
         "random_seed": 42,
         "cv_folds": 5,
         "f1_target": 0.85,
-        "min_support": 0.01,
-        "min_confidence": 0.8,
+        "min_support": 0.02,
+        "min_confidence": 0.7,
         "negative_sampling": {"strategy": "random", "ratio": 1.0},
     }
     resp = client.post("/api/v1/training/run", json=train_cfg)

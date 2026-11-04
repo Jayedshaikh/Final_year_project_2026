@@ -237,8 +237,19 @@ class TestOracleMatchesBackend:
             t["user_roles"], t["role_permissions"], t["resources"]
         )
 
-        # Jayed's function takes a dataset object — adapt as needed when M3 lands
-        backend_auth = build_auth_matrix(t)
+        # Jayed's function takes a dataset object — convert dict to RBACDataset
+        from backend.data_pipeline.loader import RBACDataset
+        dataset = RBACDataset(
+            users=t["users"],
+            roles=t["roles"],
+            permissions=t["permissions"],
+            user_roles=t["user_roles"],
+            role_permissions=t["role_permissions"],
+            resources=t["resources"],
+            user_attribute_columns=[c for c in t["users"].columns if c != "user_id"],
+            resource_attribute_columns=[c for c in t["resources"].columns if c != "resource_id"],
+        )
+        backend_auth = build_auth_matrix(dataset)
 
         # Normalise and compare
         def _normalise(df: pd.DataFrame) -> pd.DataFrame:

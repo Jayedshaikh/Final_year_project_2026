@@ -751,6 +751,12 @@ def _build_decoded_samples(run: Dict[str, Any]) -> pd.DataFrame:
 
     df = auth_matrix.merge(users_renamed, on="user_id", how="left")
     df = df.merge(resources_renamed, on="resource_id", how="left")
+
+    # Apply the same normalisation that was applied during training (lowercase categoricals)
+    # so rule conditions (lowercased OHE values) match sample values.
+    from backend.data_pipeline.preprocess import clean_attributes
+    df = clean_attributes(df)
+
     return df
 
 

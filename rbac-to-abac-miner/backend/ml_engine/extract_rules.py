@@ -278,14 +278,23 @@ def extract_permit_rules(
                 return
 
             # Separate permission conditions (for action extraction) from attribute conditions
+            # Permission conditions (no user./resource. prefix) are NEVER passed to policy_engine —
+            # the action is captured separately. Only user.* and resource.* conditions form the rule.
             permission_conds = [
                 c for c in simplified_conditions
                 if "permission" in c.attribute and "." not in c.attribute
             ]
             non_perm_conds = [c for c in simplified_conditions if c not in permission_conds]
-            final_conditions = non_perm_conds if non_perm_conds else simplified_conditions
 
+            # If there are no user/resource attribute conditions, skip this path —
+            # it only captures the permission/action which is already in rule.action.
+            # A rule needs at least one user.* or resource.* condition to be meaningful.
+            final_conditions = non_perm_conds
             if not final_conditions:
+                # This path only splits on permission — no attribute conditions.
+                # Still generate the rule but with a minimal fallback condition
+                # marking it as an action-only permit (covered by other means).
+                # Per spec, skip: "a path with no attribute conditions is degenerate."
                 return
 
             # Determine the action(s): one rule per permission (spec requirement)
