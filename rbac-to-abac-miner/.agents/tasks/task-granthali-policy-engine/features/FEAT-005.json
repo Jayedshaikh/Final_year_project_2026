@@ -1,0 +1,36 @@
+{
+  "id": "FEAT-005",
+  "type": "test",
+  "description": "Implement comprehensive security and edge-case tests covering fail-safe deny-on-error behavior, boundary conditions, idempotence, empty policy behavior, and integration with hand-computed validation examples. Ensures policy_engine meets all testing requirements from GRANTHALI_GUIDE.md section 9 and POLICY_ENGINE.md section 7.",
+  "status": "pending",
+  "steps": [
+    "Create policy_engine/tests/test_security.py. Import necessary types. Test: missing attribute in evaluate_condition returns False (deny). Test: malformed rule (empty conditions list) in rule_matches returns False. Test: exception during condition evaluation (e.g., comparing string to int with >) returns False (fail-safe). Test: unknown operator in evaluate_condition returns False. Test: validate_policy with empty rules list (no policy) denies all tuples: recall=0.0, precision=0.0 (or undefined treated as 0.0), under_privilege_rate high if RBAC authorises some tuples.",
+    "In policy_engine/tests/test_security.py, add test: unapproved rule (status='candidate' or 'rejected') is never exported by export_policy. Export with only rejected rules raises ValueError('no approved rules'). Test: conflicting merge (two rules with different actions or contradictory conditions) is refused by merge_rules.",
+    "Create policy_engine/tests/test_edge_cases.py. Test: support and confidence with zero-row samples return 0.0. Test: rule matching no tuples returns support=0.0, confidence=0.0. Test: validate_policy with zero TP+FP (policy permits nothing) handles precision denominator (set precision=0.0). Test: validate_policy with zero TP+FN (RBAC authorises nothing) handles recall and UPR denominators (recall=0.0, UPR=0.0). Test: WSC with empty rules list returns 0.0. Test: prune_rules idempotence: prune(prune(rules, samples, cfg), samples, cfg) == prune(rules, samples, cfg).",
+    "In policy_engine/tests/test_edge_cases.py, add test: operator boundary values: test '<=', '<', '>', '>=' with numeric values at exact threshold (e.g., value=5, condition <=5 is True, <5 is False). Test 'in' operator with list of mixed types (handled or denied safely). Test 'not_in' operator.",
+    "Create policy_engine/tests/test_hand_computed_validation.py. Build a hand-computed validation example per GRANTHALI_GUIDE.md section 10 and POLICY_ENGINE.md section 7. Define: 3 users (Alice, Bob, Charlie) with attributes (dept, seniority). 3 resources (file1, file2, file3) with attributes (sensitivity, owner_dept). 2 permissions (read, write). UA and PA grant specific access. Manually compute the full 3x3x2=18 tuples, determine which are RBAC-authorised. Define 2 ABAC rules. Manually evaluate each rule against each tuple. Compute TP, FP, FN, TN, precision, recall, F1, OPR, UPR by hand. Record reasoning in test comments.",
+    "In policy_engine/tests/test_hand_computed_validation.py, call build_access_matrix, validate_policy, and assert returned metrics exactly match the hand-computed values (precision, recall, F1, OPR, UPR). Verify over-privileged and under-privileged example lists contain expected tuples. This test serves as the definitive correctness check per GRANTHALI_GUIDE.md section 11 Task 2 ('Ask Shweta for a hand-computed validation example and make your validator reproduce it').",
+    "Create policy_engine/tests/test_operator_coverage.py. For each Operator enum value (==, !=, in, not_in, <=, <, >, >=), create a test case with valid inputs (condition passes), invalid inputs (condition fails), missing attribute (denies), type mismatch (denies). Ensure 100% operator coverage.",
+    "Update policy_engine/tests/__init__.py to be empty (tests discovered by pytest). Ensure all test files follow naming convention test_*.py.",
+    "Run all policy_engine tests together: python -m pytest policy_engine/tests -v. Verify all pass. Check test coverage if pytest-cov available (optional): python -m pytest policy_engine/tests --cov=policy_engine --cov-report=term. Aim for >90% line coverage on policy_engine/ excluding tests/.",
+    "Update policy_engine/README.md to document: module structure, public API functions, testing commands (pytest policy_engine/tests -q), edge cases handled, fail-safe deny-on-error semantics, and reference to POLICY_ENGINE.md for detailed specifications. Include a 'Getting Started' section showing how to call optimise_policy, validate_policy, export_policy with minimal example. State dependencies: pandas, numpy, pydantic>=2, pytest (no scikit-learn, no FastAPI)."
+  ],
+  "acceptance_criteria": [
+    "Security tests verify: missing attribute denies, malformed rule denies, exception during evaluation denies, unknown operator denies, empty policy denies all, unapproved rules never exported, conflicting merge refused",
+    "Edge-case tests verify: zero-denominator handling in metrics, operator boundary values, prune idempotence, empty inputs handled gracefully",
+    "Hand-computed validation example in test_hand_computed_validation.py reproduces exact metrics (precision, recall, F1, OPR, UPR) per GRANTHALI_GUIDE.md section 11",
+    "Operator coverage test exercises all 8 operators (==, !=, in, not_in, <=, <, >, >=) with pass, fail, missing, type-mismatch cases",
+    "All tests in policy_engine/tests/ pass: python -m pytest policy_engine/tests -v exits 0",
+    "policy_engine/README.md documents module structure, public API, testing commands, fail-safe semantics, dependencies"
+  ],
+  "verification": [
+    "python -m pytest policy_engine/tests/test_security.py -v",
+    "python -m pytest policy_engine/tests/test_edge_cases.py -v",
+    "python -m pytest policy_engine/tests/test_hand_computed_validation.py -v",
+    "python -m pytest policy_engine/tests/test_operator_coverage.py -v",
+    "python -m pytest policy_engine/tests -v",
+    "python scripts/validate_governance.py"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

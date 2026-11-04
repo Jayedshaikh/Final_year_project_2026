@@ -1,0 +1,24 @@
+{
+  "project_type": "Python-based RBAC-to-ABAC mining system with FastAPI backend, React frontend, using supervised ML to extract ABAC rules from RBAC data",
+  "language": "Python 3.9+",
+  "build_system": "pip-based; no build step required for policy_engine (pure Python library)",
+  "test_framework": "pytest",
+  "build_command": "N/A (no compilation needed)",
+  "test_command": "python -m pytest policy_engine/tests -q from repository root",
+  "verification_instructions": "1. Run pytest on policy_engine/tests. 2. Run python scripts/validate_governance.py to check module ownership. 3. Verify no imports from backend/ (circular dependency forbidden). 4. Confirm hand-computed examples reproduce exactly.",
+  "snapshot_or_generated_files": null,
+  "environment_constraints": "Low-spec laptop (Granthali's machine). No ML model training. No scikit-learn imports. No FastAPI imports. Must work with small CSV/JSON files only.",
+  "contribution_requirements": "Work on feature/granthali-policy-engine branch only. Commit locally after each feature. Never push to main. Never import from backend/. Never modify shared/schemas/contracts.py (request changes instead). All functions must have docstrings, type hints, and fail-safe error handling (deny on error, never allow).",
+  "key_patterns": "Fail-safe design: missing attributes, type mismatches, unknown operators, malformed rules, and any exception during evaluation return False (deny), never raise through public APIs. Default decision is deny (closed world). Counted rules for validation: status in (candidate, optimised, approved, edited); rejected excluded. Export uses approved only.",
+  "relevant_files": [
+    "d:\\ABAC Miner\\project\\rbac-to-abac-miner\\shared\\schemas\\contracts.py",
+    "d:\\ABAC Miner\\project\\rbac-to-abac-miner\\config\\mining_config.json",
+    "d:\\ABAC Miner\\project\\rbac-to-abac-miner\\docs\\modules\\POLICY_ENGINE.md",
+    "d:\\ABAC Miner\\project\\rbac-to-abac-miner\\docs\\modules\\DATA_PIPELINE.md",
+    "d:\\ABAC Miner\\project\\rbac-to-abac-miner\\docs\\team_guides\\GRANTHALI_GUIDE.md",
+    "d:\\ABAC Miner\\project\\rbac-to-abac-miner\\PROJECT_RULES.json",
+    "d:\\ABAC Miner\\project\\rbac-to-abac-miner\\scripts\\validate_governance.py",
+    "d:\\ABAC Miner\\project\\rbac-to-abac-miner\\backend\\requirements.txt"
+  ],
+  "directory_structure": "policy_engine/ contains: __init__.py (public API), schemas/ (rule, rbac, metrics, config models), rule_merger/, rule_generalizer/, rule_pruner/, policy_validator/ (validator.py, wsc.py), policy_exporter/, tests/, README.md. Subdirectories already have empty __init__.py files. shared/schemas/contracts.py defines ABACRule, Condition, Operator, RuleStatus, PolicyMetrics, OptimisationSummary, AuthorisationTuple - import these, never redefine."
+}

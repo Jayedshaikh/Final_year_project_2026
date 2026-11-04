@@ -1,0 +1,34 @@
+{
+  "id": "FEAT-003",
+  "type": "feat",
+  "description": "Implement policy validation against the full RBAC access matrix, computing precision, recall, F1, OPR, UPR, rule_count, and Weighted Structural Complexity (WSC). Validation must evaluate every tuple in the full matrix (never only sampled data), detect over-privileged and under-privileged examples, and use deny-on-error fail-safe semantics.",
+  "status": "pending",
+  "steps": [
+    "Create policy_engine/policy_validator/wsc.py. Import ABACRule, Operator from shared.schemas.contracts. Implement weighted_structural_complexity(rules: list[ABACRule], weights: dict | None = None) -> float. Default weights: {'w_rule': 1.0, 'w_cond': 1.0, 'w_val': 0.5}. Formula per POLICY_ENGINE.md section 5: WSC = sum over rules of (w_rule + w_cond * n_conditions + w_val * total_elements_in_in/not_in_sets). For each rule, count conditions, count total values in 'in' and 'not_in' operator value lists. Return sum. Handle empty rules list (return 0.0).",
+    "In policy_engine/policy_validator/wsc.py, add docstring documenting the formula, default weights, and referencing config/mining_config.json -> wsc_weights. Add edge case handling: rules=[] returns 0.0, weights=None uses defaults.",
+    "Create policy_engine/policy_validator/validator.py. Import pandas as pd, ABACRule, PolicyMetrics, AuthorisationTuple, RuleStatus from shared.schemas.contracts. Import rule_matches from policy_engine.schemas.rule. Import weighted_structural_complexity from .wsc. Implement validate_policy(rules: list[ABACRule], access_matrix_df: pd.DataFrame, user_attrs_df: pd.DataFrame, resource_attrs_df: pd.DataFrame, wsc_weights: dict | None = None) -> tuple[PolicyMetrics, list[AuthorisationTuple], list[AuthorisationTuple]].",
+    "In policy_engine/policy_validator/validator.py validate_policy function: (1) filter rules to counted statuses (candidate, optimised, approved, edited per POLICY_ENGINE.md section 2 and D-010). Rejected rules excluded. (2) For each row in access_matrix_df (columns: user_id, resource_id, permission, authorised), look up user attributes from user_attrs_df and resource attributes from resource_attrs_df. Build user_attrs dict with 'user.' prefix and resource_attrs dict with 'resource.' prefix. (3) Evaluate policy: policy_permits = True if ANY counted rule matches the tuple via rule_matches, else False (default deny). (4) Compare policy_permits with RBAC authorised: TP = both True, FP = policy True RBAC False (over-privilege), FN = policy False RBAC True (under-privilege), TN = both False.",
+    "In validate_policy, compute metrics: precision = TP/(TP+FP) if TP+FP > 0 else 0.0 (when no policy permits, precision undefined, use 0.0). recall = TP/(TP+FN) if TP+FN > 0 else 0.0. f1 = 2*precision*recall/(precision+recall) if precision+recall > 0 else 0.0. over_privilege_rate = FP / (FP+TN) if FP+TN > 0 else 0.0 (denominator is RBAC-unauthorised tuples per POLICY_ENGINE.md section 5). under_privilege_rate = FN / (TP+FN) if TP+FN > 0 else 0.0 (denominator is RBAC-authorised tuples). rule_count = len(counted_rules). wsc = weighted_structural_complexity(counted_rules, wsc_weights). n_tuples_evaluated = len(access_matrix_df). evaluated_on = 'full_access_matrix'.",
+    "In validate_policy, collect over-privileged examples (FP cases, policy permits but RBAC denies) and under-privileged examples (FN cases, RBAC permits but policy denies). For each, create AuthorisationTuple(user_id, resource_id, permission, roles_granting=[]). Limit examples to first 20 of each type per config/mining_config.json -> validation.max_examples. Return (PolicyMetrics object, over_examples list, under_examples list).",
+    "In validate_policy, add comprehensive docstring explaining: validates against FULL matrix never sampled data, default decision is deny, counted rules are candidate|optimised|approved|edited (rejected excluded), fail-safe: evaluation errors deny that tuple. Wrap tuple evaluation in try-except: on exception log and treat as policy denies that tuple (fail-safe).",
+    "Update policy_engine/policy_validator/__init__.py to export validate_policy and weighted_structural_complexity.",
+    "Add unit tests in policy_engine/tests/test_wsc.py: hand-compute WSC for 3 rules with different condition and value counts. Test empty rules list returns 0.0. Test custom weights override defaults correctly.",
+    "Add unit tests in policy_engine/tests/test_validation.py: create small hand-computed example: 5 users x 3 resources x 2 permissions = 30 tuples, 3 ABAC rules. Compute by hand: TP, FP, FN, TN, precision, recall, F1, OPR, UPR. Verify validate_policy returns exact values. Test zero-denominator cases: empty policy denies all (precision undefined treated as 0.0, recall=0.0). Test over-privileged and under-privileged example lists collected correctly. Test rejected rules excluded from validation. Test exception during tuple evaluation denies that tuple (fail-safe)."
+  ],
+  "acceptance_criteria": [
+    "weighted_structural_complexity correctly computes WSC using the formula from POLICY_ENGINE.md section 5, handles empty rules and custom weights",
+    "validate_policy evaluates every tuple in the full access matrix, never only sampled data",
+    "Metrics (precision, recall, F1, OPR, UPR) computed correctly with zero-denominator handling as specified",
+    "Counted rules for validation: status in (candidate, optimised, approved, edited); rejected excluded per D-010",
+    "Default decision is deny (closed world); evaluation errors deny that tuple (fail-safe)",
+    "Over-privileged and under-privileged examples collected, limited to max_examples",
+    "Hand-computed validation example reproduces exactly in tests",
+    "All tests in policy_engine/tests/test_wsc.py and test_validation.py pass"
+  ],
+  "verification": [
+    "python -m pytest policy_engine/tests/test_wsc.py -v",
+    "python -m pytest policy_engine/tests/test_validation.py -v"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}
