@@ -1,0 +1,29 @@
+{
+  "_scenario": "DUPLICATE_RECORD — user_roles has the same (user_id, role_id) pair twice",
+  "_expected_codes": ["DUPLICATE_RECORD"],
+  "_expected_severity": "warning",
+  "users": [
+    {"user_id": "U001", "department": "Finance", "seniority": 3, "clearance": "internal"},
+    {"user_id": "U002", "department": "HR", "seniority": 5, "clearance": "public"}
+  ],
+  "roles": [
+    {"role_id": "R01", "role_name": "Analyst"},
+    {"role_id": "R02", "role_name": "Viewer"}
+  ],
+  "permissions": [
+    {"permission_id": "read"}
+  ],
+  "resources": [
+    {"resource_id": "RES001", "department": "Finance", "sensitivity": "low", "type": "report"},
+    {"resource_id": "RES002", "department": "HR", "sensitivity": "low", "type": "document"}
+  ],
+  "user_roles": [
+    {"user_id": "U001", "role_id": "R01"},
+    {"user_id": "U001", "role_id": "R01"},
+    {"user_id": "U002", "role_id": "R02"}
+  ],
+  "role_permissions": [
+    {"role_id": "R01", "permission_id": "read", "resource_id": ""},
+    {"role_id": "R02", "permission_id": "read", "resource_id": ""}
+  ]
+}

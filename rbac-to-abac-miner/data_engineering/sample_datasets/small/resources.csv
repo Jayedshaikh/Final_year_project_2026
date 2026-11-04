@@ -1,0 +1,9 @@
+resource_id,department,sensitivity,type
+RES001,Legal,low,document
+RES002,Legal,high,database
+RES003,HR,medium,database
+RES004,Engineering,high,report
+RES005,Finance,high,database
+RES006,Legal,high,report
+RES007,Engineering,high,application
+RES008,HR,low,application

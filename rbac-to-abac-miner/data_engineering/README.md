@@ -27,6 +27,52 @@ python -m pytest tests -q
 
 Guide: `docs/team_guides/SHWETA_GUIDE.md`.
 
+## Generating datasets
+
+```bash
+# from the repo root
+python data_engineering/sample_datasets/generate_sample.py --size small  --seed 42 --out data_engineering/sample_datasets/small
+python data_engineering/sample_datasets/generate_sample.py --size medium --seed 42 --out data_engineering/sample_datasets/medium
+```
+
+Same seed → byte-identical output every time. See `sample_datasets/README.md` for the planted pattern.
+
+## Running validation manually
+
+```python
+import pandas as pd
+from data_engineering.data_validation import validate_dataset
+
+tables = {name: pd.read_csv(f"data_engineering/sample_datasets/small/{name}.csv")
+          for name in ["users","roles","permissions","resources","user_roles","role_permissions"]}
+issues = validate_dataset(tables)
+print(f"errors: {sum(1 for i in issues if i['severity']=='error')}")
+print(f"warnings: {sum(1 for i in issues if i['severity']=='warning')}")
+```
+
+## Running the authorisation oracle
+
+```python
+from data_engineering.data_validation import brute_force_auth
+auth_df = brute_force_auth(tables["users"], tables["roles"], tables["permissions"],
+                            tables["user_roles"], tables["role_permissions"], tables["resources"])
+print(auth_df.head())
+```
+
+## Running tests
+
+```bash
+# from the repo root
+python -m pytest tests -q
+# or just Shweta's tests
+python -m pytest tests/test_data_validation.py tests/test_dataset_generation.py -v
+```
+
 ## Status
 
-Scaffold only. Shweta's first deliverable is `generate_sample.py` and the `small` dataset (hand it to Jayed on day 2).
+Implementation complete. All assigned tasks implemented:
+- `sample_datasets/generate_sample.py` + generated `small/` and `medium/` datasets
+- `data_validation/validator.py` — all 12 issue codes
+- `data_validation/oracle.py` — brute_force_auth + verify_samples
+- `test_scenarios/` — 14 edge-case scenario files
+- `documentation/test_cases.md` — hand-computed examples

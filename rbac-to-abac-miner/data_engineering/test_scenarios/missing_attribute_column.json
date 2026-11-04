@@ -1,0 +1,30 @@
+{
+  "_scenario": "MISSING_COLUMN — users table is missing the clearance column",
+  "_expected_codes": [],
+  "_note": "clearance is an attribute column, not a required column per DATA_PIPELINE.md. The validator only checks for required id columns. This scenario tests that the dataset still loads and validates structurally but has no clearance attribute in user_attributes.",
+  "users": [
+    {"user_id": "U001", "department": "Finance", "seniority": 3},
+    {"user_id": "U002", "department": "HR", "seniority": 5},
+    {"user_id": "U003", "department": "Engineering", "seniority": 7}
+  ],
+  "roles": [
+    {"role_id": "R01", "role_name": "Analyst"},
+    {"role_id": "R02", "role_name": "Engineer"}
+  ],
+  "permissions": [
+    {"permission_id": "read"}
+  ],
+  "resources": [
+    {"resource_id": "RES001", "department": "Finance", "sensitivity": "low", "type": "report"},
+    {"resource_id": "RES002", "department": "Engineering", "sensitivity": "medium", "type": "document"}
+  ],
+  "user_roles": [
+    {"user_id": "U001", "role_id": "R01"},
+    {"user_id": "U002", "role_id": "R01"},
+    {"user_id": "U003", "role_id": "R02"}
+  ],
+  "role_permissions": [
+    {"role_id": "R01", "permission_id": "read", "resource_id": ""},
+    {"role_id": "R02", "permission_id": "read", "resource_id": ""}
+  ]
+}
