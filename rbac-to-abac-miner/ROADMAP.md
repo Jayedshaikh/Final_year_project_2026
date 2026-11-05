@@ -86,9 +86,9 @@ First target: **one thin end-to-end workflow** (upload, samples, Decision Tree, 
 | M4 | ✅ complete | S+/S- sampling, stratified split, OHE encoding (fit on train only), deterministic with seed 42 |
 | M5 | ✅ complete | DT/RF/GB trained with stratified CV; all three hit F1=1.0 on seed_hospital; models persisted via joblib |
 | M6 | ✅ complete | Decision Tree permit paths extracted as ABACRule objects (support/confidence TEMPORARY until M7) |
-| M7 | 🔄 pending | Granthali's policy_engine module; backend stubs clearly marked in pipeline_service.py |
-| M8 | 🔄 pending | policy_engine.validate_policy; stub returns DT metrics as proxy |
-| M9 | 🔄 in progress | Naeem's frontend; stub mode (BACKEND_STUBS=true) available day-1 |
-| M10 | ✅ complete | All 9 REST endpoints wired, 85 tests passing, contract validated |
-| M11 | 🔄 pending | Review/export works (approve → export confirmed in demo); XACML export stub until Granthali |
-| M12 | 🔄 pending | Full integration test with Shweta's API tests; demo runs end-to-end with seed 42 |
+| M7 | ✅ complete | Granthali's policy_engine delivered — merge, generalise, prune, optimise_policy working |
+| M8 | ✅ complete | validate_policy vectorised for 40k+ tuples; case-insensitive matching fixed; metrics correct |
+| M9 | ✅ complete | Naeem's frontend — 8 pages, live API mode, responsive design, 86KB gzipped |
+| M10 | ✅ complete | All 9 REST endpoints wired, 197 tests passing, contract validated, full demo works |
+| M11 | ✅ complete | Admin review/approve/reject/edit works; export gated on approval (409 enforced); JSON + XACML |
+| M12 | 🔄 in progress | Integration tests passing (112/117); demo script runs all 9 steps; 3 large datasets added |
